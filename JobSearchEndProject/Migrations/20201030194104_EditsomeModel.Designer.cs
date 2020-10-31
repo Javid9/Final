@@ -4,14 +4,16 @@ using JobSearchEndProject.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JobSearchEndProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201030194104_EditsomeModel")]
+    partial class EditsomeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,7 +70,7 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("Firstname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("General")
+                    b.Property<string>("Genral")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Graduation")
@@ -79,6 +81,9 @@ namespace JobSearchEndProject.Migrations
 
                     b.Property<string>("JobPosition")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LoactionId")
+                        .HasColumnType("int");
 
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
@@ -118,7 +123,7 @@ namespace JobSearchEndProject.Migrations
 
                     b.HasIndex("EducationLevelId");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("LoactionId");
 
                     b.HasIndex("StateId");
 
@@ -259,14 +264,14 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Location", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.Loaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Locationn")
+                    b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -309,11 +314,9 @@ namespace JobSearchEndProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.Location", null)
+                    b.HasOne("JobSearchEndProject.Models.Loaction", null)
                         .WithMany("Applies")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LoactionId");
 
                     b.HasOne("JobSearchEndProject.Models.State", null)
                         .WithMany("Applies")
@@ -383,7 +386,7 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("Job");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Location", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.Loaction", b =>
                 {
                     b.Navigation("Applies");
                 });

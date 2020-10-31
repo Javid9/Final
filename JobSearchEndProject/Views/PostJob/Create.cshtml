@@ -63,7 +63,7 @@
                                                 <option data-display="Category">Category</option>
                                                 @foreach (var category in ViewBag.Categorys)
                                                 {
-                                                    <option value="@category.Id">@category.Name</option>
+                                                    <option value="@category.Id">@category.CategoryName</option>
                                                 }
                                             </select>
                                         </div>
@@ -80,7 +80,7 @@
                                                 <option data-display="City">City</option>
                                                 @foreach (var city in ViewBag.City)
                                                 {
-                                                    <option value="@city.Id">@city.Name</option>
+                                                    <option value="@city.Id">@city.CityName</option>
                                                 }
                                             </select>
                                         </div>
@@ -94,7 +94,7 @@
                                                 <option data-display="Country">Country</option>
                                                 @foreach (var country in ViewBag.Country)
                                                 {
-                                                    <option value="@country.Id">@country.Name</option>
+                                                    <option value="@country.Id">@country.CountryName</option>
                                                 }
                                             </select>
                                         </div>

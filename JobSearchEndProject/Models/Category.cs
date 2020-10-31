@@ -10,7 +10,7 @@ namespace JobSearchEndProject.Models
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public ICollection<Job> Jobs { get; set; }
     }
 }

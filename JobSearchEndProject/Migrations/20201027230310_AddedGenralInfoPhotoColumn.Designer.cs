@@ -4,126 +4,22 @@ using JobSearchEndProject.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JobSearchEndProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201027230310_AddedGenralInfoPhotoColumn")]
+    partial class AddedGenralInfoPhotoColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0-rc.2.20475.6");
-
-            modelBuilder.Entity("JobSearchEndProject.Models.Apply", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CourseTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Degree")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EducationInformation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EducationLevelId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExperienceInformation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Firstname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("General")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Graduation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JobPosition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SkillProficiency")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Skills")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("University")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Website")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("EducationLevelId");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("StateId");
-
-                    b.ToTable("Apply");
-                });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>
                 {
@@ -132,7 +28,7 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("CategoryName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -148,12 +44,41 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("CityName")
+                    b.Property<int>("ContactInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ContactInformationId");
+
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.ContactInformation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactInformation");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Country", b =>
@@ -163,13 +88,40 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("CountryName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.EducationDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AdditionInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Degree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Graduation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("University")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EducationDetails");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.EducationLevel", b =>
@@ -179,13 +131,51 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("EducationDetailId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Level")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EducationDetailId");
+
                     b.ToTable("EducationLevels");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.GeneralInformation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Firstname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genral")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GeneralInformation");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Job", b =>
@@ -259,19 +249,42 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Location", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.Loaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Locationn")
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkExperienceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WorkExperienceId");
+
+                    b.ToTable("Loactions");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("SkillProficiency")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loactions");
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.State", b =>
@@ -281,45 +294,66 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("StateName")
+                    b.Property<int>("ContactInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ContactInformationId");
+
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Apply", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.WorkExperience", b =>
                 {
-                    b.HasOne("JobSearchEndProject.Models.City", null)
-                        .WithMany("Applies")
-                        .HasForeignKey("CityId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AdditionInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("JobPosition")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WorkExperiences");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.City", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.ContactInformation", "ContactInformation")
+                        .WithMany("Cities")
+                        .HasForeignKey("ContactInformationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.Country", null)
-                        .WithMany("Applies")
-                        .HasForeignKey("CountryId")
+                    b.Navigation("ContactInformation");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.EducationLevel", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.EducationDetail", "EducationDetail")
+                        .WithMany("EducationLevels")
+                        .HasForeignKey("EducationDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.EducationLevel", null)
-                        .WithMany("Applies")
-                        .HasForeignKey("EducationLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobSearchEndProject.Models.Location", null)
-                        .WithMany("Applies")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobSearchEndProject.Models.State", null)
-                        .WithMany("Applies")
-                        .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("EducationDetail");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Job", b =>
@@ -357,6 +391,28 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("EducationLevel");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.Loaction", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.WorkExperience", "WorkExperience")
+                        .WithMany("Loactions")
+                        .HasForeignKey("WorkExperienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WorkExperience");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.State", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.ContactInformation", "ContactInformation")
+                        .WithMany("States")
+                        .HasForeignKey("ContactInformationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContactInformation");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>
                 {
                     b.Navigation("Jobs");
@@ -364,33 +420,34 @@ namespace JobSearchEndProject.Migrations
 
             modelBuilder.Entity("JobSearchEndProject.Models.City", b =>
                 {
-                    b.Navigation("Applies");
-
                     b.Navigation("Jobs");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.ContactInformation", b =>
+                {
+                    b.Navigation("Cities");
+
+                    b.Navigation("States");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Country", b =>
                 {
-                    b.Navigation("Applies");
-
                     b.Navigation("Jobs");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.EducationDetail", b =>
+                {
+                    b.Navigation("EducationLevels");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.EducationLevel", b =>
                 {
-                    b.Navigation("Applies");
-
                     b.Navigation("Job");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Location", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.WorkExperience", b =>
                 {
-                    b.Navigation("Applies");
-                });
-
-            modelBuilder.Entity("JobSearchEndProject.Models.State", b =>
-                {
-                    b.Navigation("Applies");
+                    b.Navigation("Loactions");
                 });
 #pragma warning restore 612, 618
         }

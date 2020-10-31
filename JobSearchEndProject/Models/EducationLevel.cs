@@ -12,8 +12,7 @@ namespace JobSearchEndProject.Models
         [Required]
         public string Level { get; set; }
         public ICollection<Job> Job { get; set; }
-        public int EducationDetailId { get; set; }
-        public EducationDetail EducationDetail { get; set; }
+        public ICollection<Apply> Applies { get; set; }
 
     }
 }

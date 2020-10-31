@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace JobSearchEndProject.Models
 {
-    public class Skill
+    public class Location
     {
         public int Id { get; set; }
-        public string Skills { get; set; }
-        public int SkillProficiency { get; set; }
+        public string Locationn { get; set; }
+        public ICollection<Apply> Applies { get; set; }
     }
 }
