@@ -152,7 +152,14 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\PostJob\Create.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Job\Apply.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

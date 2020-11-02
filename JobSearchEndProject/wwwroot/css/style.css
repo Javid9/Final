@@ -25,14 +25,24 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/*Login*/
+.header-login {
+    width:100px;
+    height:36px;
+    background-color: #ff4f6c;
+    border-radius: 15px;
+    color:white;
+    border:none;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
 }
 
 a {
