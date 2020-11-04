@@ -1,0 +1,185 @@
+﻿@model Bio
+@{
+    ViewData["Title"] = "Default";
+}
+
+<!-- Navigation Bar-->
+<header id="topnav" class="defaultscroll scroll-active">
+    <div class="tagline">
+        <div class="container">
+            <div class="float-left">
+                <div class="phone">
+                    <i class="mdi mdi-phone-classic"></i>@Model.Phone
+                </div>
+                <div class="email">
+                    <a href="#">
+                        <i class="mdi mdi-email"></i>@Model.Email
+                    </a>
+                </div>
+            </div>
+            <div class="float-right">
+                <ul class="topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="log"><a>@ViewBag.Username</a></li>
+                        <li><a asp-controller="Account" asp-action="LogOut">LogOut</a></li>
+                    }
+                    else
+                    {
+                        <li class="list-inline-item">
+                            <a asp-controller="Account" asp-action="Login"><button class="header-login">Login</button></a>
+                        </li>
+                    }
+
+
+                    <li class="list-inline-item">
+                        <a href="javascript:void(0);">
+                            <select id="select-lang" class="demo-default" placeholder="Language">
+                                <option value="">Language</option>
+                                <option value="4">English</option>
+                                <option value="1">Spanish</option>
+                                <option value="3">French</option>
+                                <option value="5">Az</option>
+                            </select>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Logo container-->
+        <div>
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                <img src="~/images/@Model.Logo" alt="" class="logo-light" height="28" />
+                <img src="~/images/logo-dark.png" alt="" class="logo-dark" height="28" />
+            </a>
+        </div>
+        <!-- End Logo container-->
+        <div class="menu-extras">
+
+            <div class="menu-item">
+                <!-- Mobile menu toggle-->
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </div>
+        </div>
+
+        <div id="navigation">
+
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+
+                <li class="has-submenu">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a asp-controller="Job" asp-action="Index">Jobs</a>
+                    <span class="menu-arrow"></span>
+                    @*<ul class="submenu">
+                            <li>
+                                <a href="job-list.html">Job List</a>
+                            </li>
+                            <li>
+                                <a href="job-grid.html">Job Grid</a>
+                            </li>
+                            <li>
+                                <a href="job-details.html">Job Details</a>
+                            </li>
+                            <li>
+                                <a href="job-details-2.html">Job Details-2</a>
+                            </li>
+
+                        </ul>*@
+                </li>
+                <li class="has-submenu">
+                    <a asp-controller="Candidate" asp-action="Index">Candidates</a>
+                    <span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="candidates-listing.html">Candidates Listing</a>
+                        </li>
+                        <li>
+                            <a href="candidates-profile.html">Candidates Profile</a>
+                        </li>
+                        <li>
+                            <a href="create-resume.html">Create Resume</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a asp-controller="Employer" asp-action="Index">Employers</a>
+                    <span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="employers-list.html">Employers List</a>
+                        </li>
+                        <li>
+                            <a href="company-detail.html">Company Detail</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a asp-controller="Blog" asp-action="Index">Blog</a>
+                    <span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="blog-list.html">Blog List</a>
+                        </li>
+                        <li>
+                            <a href="blog-details.html">Blog Details</a>
+                        </li>
+                        <li>
+                            <a href="blog-grid.html">Blog Grid</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a asp-controller="Page" asp-action="Index">Pages</a>
+                    <span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="about.html">About us</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Services</a>
+                        </li>
+                        <li>
+                            <a href="team.html">Team</a>
+                        </li>
+                        <li>
+                            <a href="faq.html">Faqs</a>
+                        </li>
+                        <li>
+                            <a href="pricing.html">Pricing plans</a>
+                        </li>
+                        <li>
+                            <a href="#ModalCenter" class="nav-link" data-toggle="modal" data-target="#ModalCenter">Log in</a>
+                        </li>
+                        <li>
+                            <a href="#ModalCenter1" class="nav-link" data-toggle="modal" data-target="#ModalCenter1">Register</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a asp-controller="Contact" asp-action="Index">contact</a>
+                </li>
+                <a asp-controller="PostJob" asp-action="Create" class="btn btn-custom btn-sm"><i class="mdi mdi-cloud-upload"></i> Post a Job</a>
+
+
+            </ul>
+            <!-- End navigation menu-->
+        </div>
+    </div>
+</header>
+<!-- End Navigation Bar-->

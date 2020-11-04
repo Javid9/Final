@@ -21,13 +21,20 @@ using JobSearchEndProject.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\_ViewImports.cshtml"
+using JobSearchEndProject.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\_ViewImports.cshtml"
 using JobSearchEndProject.ViewModels.User;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85854a5db0ce4da7fb0026de01247f97d8f216df", @"/Views/Shared/_partialSubscribe.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0060a2f0cf99eab2a78dd66adaa0384d399e55c1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53d8be59ac70f473ae4690afee60c7338b38433f", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__partialSubscribe : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -69,7 +76,7 @@ using JobSearchEndProject.ViewModels.User;
             <div class=""col-lg-8"">
                 <div class=""subscribe"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85854a5db0ce4da7fb0026de01247f97d8f216df4004", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85854a5db0ce4da7fb0026de01247f97d8f216df4230", async() => {
                 WriteLiteral(@"
                         <div class=""row"">
                             <div class=""col-md-9"">

@@ -15,10 +15,6 @@ namespace JobSearchEndProject.DAL
 
         }
 
-        public AppDbContext()
-        {
-
-        }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Job> Jobs { get; set; }
@@ -27,6 +23,7 @@ namespace JobSearchEndProject.DAL
         public DbSet<City> Cities { get; set; }
         public DbSet<Location> Loactions { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<Bio> Bios { get; set; }
 
     }
 }

@@ -12,5 +12,6 @@ namespace JobSearchEndProject.Models
         [Required,MaxLength(150)]
         public string FullName { get; set; }
         public bool isActivated { get; set; }
+       
     }
 }
