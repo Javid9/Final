@@ -73,12 +73,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group app-label">
-                                        <label asp-for="Date" class="text-muted">Date Of Birth</label>
-                                        <input asp-for="Date" class="form-control resume" placeholder="27-09-1997">
-                                    </div>
-                                </div>
+
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
@@ -106,6 +101,69 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label class="text-muted">Category</label>
+                                        <div class="form-button">
+                                            <select asp-for="CategoryId" asp-items="ViewBag.Category" class="nice-select">
+                                                <option data-display="Category">Category</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Facebook" class="text-muted">Facebook</label>
+                                        <input asp-for="Facebook" class="form-control resume" placeholder="Facebook">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Instagram" class="text-muted">Instagram</label>
+                                        <input asp-for="Instagram" class="form-control resume" placeholder="Instagram">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Twitter" class="text-muted">Middle Name</label>
+                                        <input asp-for="Twitter" class="form-control resume" placeholder="Twitter">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Google" class="text-muted">Google</label>
+                                        <input asp-for="Google" class="form-control resume" placeholder="Google">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Date" class="text-muted">Date Of Birth</label>
+                                        <input asp-for="Date" class="form-control resume" placeholder="27-09-1997">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="AboutMe">AboutMe</label>
+                                        <textarea asp-for="AboutMe" rows="4" class="form-control resume" placeholder="AboutMe"></textarea>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
@@ -127,7 +185,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
-                                        <label for="citys" class="text-muted">City</label>
+                                        <label  class="text-muted">City</label>
                                         <div class="form-button">
                                             <select asp-for="CityId" asp-items="ViewBag.City" class="nice-select">
                                                 <option data-display="City">City</option>
@@ -136,12 +194,14 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label for="state" class="text-muted">State</label>
                                         <div class="form-button">
                                             <select asp-for="StateId" asp-items="ViewBag.State" class="nice-select">
-                                                <option data-display="State">State</option> 
+                                                <option data-display="State">State</option>
                                             </select>
                                         </div>
                                     </div>
@@ -204,19 +264,33 @@
                         <div class="custom-form">
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group app-label">
-                                        <label asp-for="Graduation" class="text-muted">Graduation</label>
-                                        <input asp-for="Graduation" class="form-control resume" placeholder="Graduation">
-                                    </div>
-                                </div>
+
+
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
-                                        <label asp-for="University" class="text-muted">University/College</label>
-                                        <input asp-for="University" class="form-control resume" placeholder="">
+                                        <label asp-for="StartUniversity" class="text-muted"></label>
+                                        <input asp-for="StartUniversity" class="form-control resume" placeholder="StartUniversity">
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label asp-for="GraduationDate" class="text-muted"></label>
+                                        <input asp-for="GraduationDate" class="form-control resume" placeholder="GraduationDate">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label asp-for="UniversityName" class="text-muted">University/College</label>
+                                        <input asp-for="UniversityName" class="form-control resume" placeholder="University/College">
+                                    </div>
+                                </div>
+
+
 
                                 <div class="col-lg-6">
                                     <div class="form-group app-label">
@@ -249,7 +323,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group app-label">
-                                        <label asp-for="EducationInformation" >Addition Information</label>
+                                        <label asp-for="EducationInformation">Addition Information</label>
                                         <textarea asp-for="EducationInformation" rows="4" class="form-control resume" placeholder="Addition Information"></textarea>
                                     </div>
                                 </div>
@@ -290,7 +364,7 @@
                                     <div class="form-group app-label">
                                         <label for="location" class="text-muted">Location</label>
                                         <div class="form-button">
-                                            <select asp-for="LocationId" asp-items="  ViewBag.Location" class="nice-select">
+                                            <select asp-for="LocationId" asp-items="ViewBag.Location" class="nice-select">
                                                 <option data-display="Search">Search</option>
                                             </select>
                                         </div>
@@ -301,19 +375,27 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
-                                                <label asp-for="DateFrom" class="text-muted">Date From</label>
-                                                <input asp-for="DateFrom" class="form-control resume" placeholder="28-okt-2020">
+                                                <label asp-for="StartCompanyDate" class="text-muted">Date From</label>
+                                                <input asp-for="StartCompanyDate" class="form-control resume" placeholder="28-okt-2020">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
-                                                <label asp-for="DateTo" class="text-muted">Date To</label>
-                                                <input asp-for="DateTo" class="form-control resume" placeholder="29-okt-2020">
+                                                <label asp-for="EndCompanyDate" class="text-muted">Date To</label>
+                                                <input asp-for="EndCompanyDate" class="form-control resume" placeholder="29-okt-2020">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Salary" class="text-muted">Salary</label>
+                                        <input asp-for="Salary" class="form-control resume" placeholder="Salary">
+                                    </div>
+                                </div>
+
 
                                 <div class="col-lg-12">
                                     <div class="form-group app-label">
@@ -344,13 +426,6 @@
                                     <div class="form-group app-label">
                                         <label asp-for="Skills" class="text-muted">Skills</label>
                                         <input  asp-for="Skills" class="form-control resume" placeholder="HTML, CSS, PHP, javascript, ...">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="form-group app-label">
-                                        <label asp-for="SkillProficiency" class="text-muted">Skill proficiency</label>
-                                        <input asp-for="SkillProficiency" class="form-control resume" placeholder="75%">
                                     </div>
                                 </div>
                             </div>

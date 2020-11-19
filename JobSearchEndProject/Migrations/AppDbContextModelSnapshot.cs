@@ -99,8 +99,17 @@ namespace JobSearchEndProject.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("AboutMe")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
@@ -117,12 +126,6 @@ namespace JobSearchEndProject.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
 
@@ -135,7 +138,13 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("EndCompanyDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ExperienceInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Facebook")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Firstname")
@@ -144,10 +153,16 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("General")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Graduation")
+                    b.Property<string>("Google")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("GraduationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobPosition")
@@ -162,11 +177,17 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SkillProficiency")
+                    b.Property<int>("Salary")
                         .HasColumnType("int");
 
                     b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartCompanyDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartUniversity")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("StateId")
                         .HasColumnType("int");
@@ -177,13 +198,20 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("University")
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UniversityName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
 
@@ -195,7 +223,7 @@ namespace JobSearchEndProject.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Apply");
+                    b.ToTable("Applies");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Bio", b =>
@@ -231,6 +259,53 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Bios");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AllDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Blogs");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -239,7 +314,6 @@ namespace JobSearchEndProject.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("CategoryName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -260,6 +334,40 @@ namespace JobSearchEndProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId1");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Country", b =>
@@ -294,12 +402,88 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("EducationLevels");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.Employer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyOverview")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fullname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Google")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employers");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.EmployerCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("EmployerId");
+
+                    b.ToTable("EmployerCategories");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Job", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -352,7 +536,12 @@ namespace JobSearchEndProject.Migrations
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isActivated")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CategoryId");
 
@@ -393,6 +582,35 @@ namespace JobSearchEndProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("States");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Subcomment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId1");
+
+                    b.ToTable("Subcomments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -528,39 +746,114 @@ namespace JobSearchEndProject.Migrations
 
             modelBuilder.Entity("JobSearchEndProject.Models.Apply", b =>
                 {
-                    b.HasOne("JobSearchEndProject.Models.City", null)
+                    b.HasOne("JobSearchEndProject.Models.AppUser", "AppUser")
+                        .WithMany("Applies")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("JobSearchEndProject.Models.Category", "Category")
+                        .WithMany("Applies")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSearchEndProject.Models.City", "City")
                         .WithMany("Applies")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.Country", null)
+                    b.HasOne("JobSearchEndProject.Models.Country", "Country")
                         .WithMany("Applies")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.EducationLevel", null)
+                    b.HasOne("JobSearchEndProject.Models.EducationLevel", "EducationLevel")
                         .WithMany("Applies")
                         .HasForeignKey("EducationLevelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.Location", null)
+                    b.HasOne("JobSearchEndProject.Models.Location", "Location")
                         .WithMany("Applies")
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSearchEndProject.Models.State", null)
+                    b.HasOne("JobSearchEndProject.Models.State", "State")
                         .WithMany("Applies")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("City");
+
+                    b.Navigation("Country");
+
+                    b.Navigation("EducationLevel");
+
+                    b.Navigation("Location");
+
+                    b.Navigation("State");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Blog", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Comment", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.AppUser", "AppUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AppUserId1");
+
+                    b.HasOne("JobSearchEndProject.Models.Blog", "Blog")
+                        .WithMany("Comments")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Blog");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.EmployerCategory", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.Category", "Category")
+                        .WithMany("EmployerCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSearchEndProject.Models.Employer", "Employer")
+                        .WithMany("EmployerCategories")
+                        .HasForeignKey("EmployerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Employer");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Job", b =>
                 {
+                    b.HasOne("JobSearchEndProject.Models.AppUser", "AppUser")
+                        .WithMany("Jobs")
+                        .HasForeignKey("AppUserId");
+
                     b.HasOne("JobSearchEndProject.Models.Category", "Category")
                         .WithMany("Jobs")
                         .HasForeignKey("CategoryId")
@@ -585,6 +878,8 @@ namespace JobSearchEndProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("AppUser");
+
                     b.Navigation("Category");
 
                     b.Navigation("City");
@@ -592,6 +887,15 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("EducationLevel");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Subcomment", b =>
+                {
+                    b.HasOne("JobSearchEndProject.Models.AppUser", "AppUser")
+                        .WithMany("Subcomments")
+                        .HasForeignKey("AppUserId1");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -645,8 +949,28 @@ namespace JobSearchEndProject.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.AppUser", b =>
+                {
+                    b.Navigation("Applies");
+
+                    b.Navigation("Comments");
+
+                    b.Navigation("Jobs");
+
+                    b.Navigation("Subcomments");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Blog", b =>
+                {
+                    b.Navigation("Comments");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>
                 {
+                    b.Navigation("Applies");
+
+                    b.Navigation("EmployerCategories");
+
                     b.Navigation("Jobs");
                 });
 
@@ -669,6 +993,11 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("Applies");
 
                     b.Navigation("Job");
+                });
+
+            modelBuilder.Entity("JobSearchEndProject.Models.Employer", b =>
+                {
+                    b.Navigation("EmployerCategories");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Location", b =>

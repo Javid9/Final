@@ -36,9 +36,9 @@ namespace JobSearchEndProject.Extensions
         }
 
 
-        public static void DeletePath(string webroot, string folder, string filename)
+        public static void DeletePath(string webroot, string folder, string image)
         {
-            string path = Path.Combine(webroot, folder, filename);
+            string path = Path.Combine(webroot, folder, image);
 
             if (File.Exists(path))
             {

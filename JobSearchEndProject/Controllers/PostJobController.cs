@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobSearchEndProject.Controllers
 {
-
+    [Authorize(Roles = "Admin, Employer")]
     public class PostJobController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public PostJobController(AppDbContext context, IWebHostEnvironment env)
+        private readonly UserManager<AppUser> _userManager;
+        public PostJobController(AppDbContext context, IWebHostEnvironment env, UserManager<AppUser> userManager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
         }
     
 
@@ -40,6 +44,7 @@ namespace JobSearchEndProject.Controllers
             ViewBag.Country = _context.Countries.ToList();
             ViewBag.EduLevel = _context.EducationLevels.ToList();
             ViewBag.City = _context.Cities.ToList();
+            ViewBag.Employer = _context.Employers.ToList();
 
             if (!ModelState.IsValid) return View();
 
@@ -62,6 +67,9 @@ namespace JobSearchEndProject.Controllers
 
             string path = Path.Combine("images");
             string fileName = await job.Photo.SaveImg(_env.WebRootPath, path);
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+           
 
             Job newJob = new Job
             {
@@ -80,10 +88,11 @@ namespace JobSearchEndProject.Controllers
                 CountryId = job.CountryId,
                 EducationLevelId = job.EducationLevelId,
                 CityId = job.CityId,
-                CreateTime = DateTime.Now
+                CreateTime = DateTime.Now,
+                AppUserId= user.Id,
             };
             newJob.Image = fileName;
-            await _context.AddAsync(newJob);
+            await _context.Jobs.AddAsync(newJob);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Job");
         }

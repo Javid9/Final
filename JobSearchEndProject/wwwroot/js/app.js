@@ -20,6 +20,7 @@
     });
 
     //file upload
+
     let upload = document.getElementById("upload")
     let div = document.getElementById("div")
 

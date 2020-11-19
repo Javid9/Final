@@ -46,6 +46,10 @@ namespace JobSearchEndProject.Models
         public int CityId { get; set; }
         public City City { get; set; }
 
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
+
+        public bool isActivated { get; set; }
 
     }
 }

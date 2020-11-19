@@ -12,6 +12,10 @@ namespace JobSearchEndProject.Models
         [Required,MaxLength(150)]
         public string FullName { get; set; }
         public bool isActivated { get; set; }
-       
+        public ICollection<Job> Jobs { get; set; }
+        public ICollection<Apply> Applies { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Subcomment> Subcomments { get; set; }
+
     }
 }

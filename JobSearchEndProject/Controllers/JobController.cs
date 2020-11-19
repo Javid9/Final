@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,29 +20,49 @@ namespace JobSearchEndProject.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public JobController(AppDbContext context, IWebHostEnvironment env)
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _rolemanager;
+        public JobController(AppDbContext context, IWebHostEnvironment env
+            , UserManager<AppUser> userManager, RoleManager<IdentityRole> rolemanager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
+            _rolemanager = rolemanager;
         }
+       
 
         public IActionResult Index(int? page)
         {
+
             //ViewBag.Time = DateTime.Now.Minute;
+            
             ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 6);
             ViewBag.Page = page;
             if (page == null)
             {
-                return View(_context.Jobs.OrderByDescending(p => p.Id).Take(6).Include(c => c.Category).Include(c => c.Country).Include(c=>c.City).ToList());
+                return View(_context.Jobs.Where(x=>x.isActivated== true).OrderByDescending(p => p.Id).Take(6).Include(c => c.Category)
+                .Include(c => c.Country).Include(c=>c.City).Include(x => x.AppUser).ToList());
             }
             else
             {
-                return View(_context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6).Take(6).Include(c => c.Category).Include(c => c.Country).Include(c => c.City).ToList());
+                return View(_context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6)
+                 .Take(6).Include(c => c.Category)
+                .Include(c => c.Country).Include(c => c.City).Include(x=>x.AppUser).ToList());
             }
-            //return View(_context.Jobs.OrderByDescending(x=>x.Id).Include(c=>c.Category).Include(c=>c.Country));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index( string userId)
+        {
+            TempData["lorem"] = userId;
+            return RedirectToAction(nameof(Apply));
         }
 
 
+
+        [Authorize(Roles = "Admin, Employee")]
         public IActionResult Apply()
         {
             ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName");
@@ -48,6 +70,7 @@ namespace JobSearchEndProject.Controllers
             ViewBag.Country = new SelectList(_context.Countries.ToList(), "Id", "CountryName");
             ViewBag.EducationLevel = new SelectList(_context.EducationLevels.ToList(), "Id", "Level");
             ViewBag.Location = new SelectList(_context.Loactions.ToList(), "Id", "Locationn");
+            ViewBag.Category = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
 
             return View();
         }
@@ -57,12 +80,12 @@ namespace JobSearchEndProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Apply(Apply apply, string General, string Status)
         {
-            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "Name");
-            ViewBag.State = new SelectList(_context.States.ToList(), "Id", "Name");
-            ViewBag.Country = new SelectList(_context.Countries.ToList(), "Id", "Name");
+            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName");
+            ViewBag.State = new SelectList(_context.States.ToList(), "Id", "StateName");
+            ViewBag.Country = new SelectList(_context.Countries.ToList(), "Id", "CountryName");
             ViewBag.EducationLevel = new SelectList(_context.EducationLevels.ToList(), "Id", "Level");
             ViewBag.Location = new SelectList(_context.Loactions.ToList(), "Id", "Locationn");
-
+            ViewBag.Category = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
             if (!ModelState.IsValid) return View();
 
             if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
@@ -84,45 +107,51 @@ namespace JobSearchEndProject.Controllers
 
             string path = Path.Combine("images", "apply");
             string fileName = await apply.Photo.SaveImg(_env.WebRootPath, path);
-
+           
 
             Apply newApply = new Apply
             {
-                Firstname=apply.Firstname,
-                MiddleName=apply.MiddleName,
-                Surname=apply.Surname,
-                Date=apply.Date,
-                General=General,
-                Status=Status,
-                Phone=apply.Phone,
-                Email=apply.Email,
-                Website=apply.Website,
-                Address=apply.Address,
-                CityId=apply.CityId,
-                StateId=apply.StateId,
-                CountryId=apply.CountryId,
-                Graduation=apply.Graduation,
-                University=apply.University,
-                Degree=apply.Degree,
-                CourseTitle=apply.CourseTitle,
-                EducationInformation=apply.EducationInformation,
-                EducationLevelId=apply.EducationLevelId,
-                CompanyName=apply.CompanyName,
-                JobPosition=apply.JobPosition,
-                DateFrom=apply.DateFrom,
-                DateTo=apply.DateTo,
-                ExperienceInformation=apply.ExperienceInformation,
-                LocationId=apply.LocationId,
-                Skills=apply.Skills,
-                SkillProficiency=apply.SkillProficiency
+                Firstname = apply.Firstname,
+                MiddleName = apply.MiddleName,
+                Surname = apply.Surname,
+                Date = apply.Date,
+                General = General,
+                Status = Status,
+                Phone = apply.Phone,
+                Email = apply.Email,
+                Website = apply.Website,
+                Address = apply.Address,
+                CityId = apply.CityId,
+                StateId = apply.StateId,
+                CountryId = apply.CountryId,
+                GraduationDate = apply.GraduationDate,
+                StartUniversity=apply.StartUniversity,
+                UniversityName = apply.UniversityName,
+                Degree = apply.Degree,
+                CourseTitle = apply.CourseTitle,
+                EducationInformation = apply.EducationInformation,
+                EducationLevelId = apply.EducationLevelId,
+                CompanyName = apply.CompanyName,
+                JobPosition = apply.JobPosition,
+                StartCompanyDate= apply.StartCompanyDate,
+                EndCompanyDate = apply.EndCompanyDate,
+                ExperienceInformation = apply.ExperienceInformation,
+                LocationId = apply.LocationId,
+                Skills = apply.Skills,
+                AboutMe=apply.AboutMe,
+                Instagram=apply.Instagram,
+                Facebook=apply.Facebook,
+                Twitter=apply.Twitter,
+                Google=apply.Google,
+                CategoryId=apply.CategoryId,
+                AppUserId = TempData["lorem"].ToString(),
             };
             newApply.Image = fileName;
-          await  _context.AddAsync(newApply);
-           await _context.SaveChangesAsync();
-            return Ok("yes");
-
-
-            //newApplyVm.GeneralInformation.Image = fileName;
+           
+            await _context.Applies.AddAsync(newApply);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
+            
 
         }
 

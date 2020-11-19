@@ -19,6 +19,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\images\apply\" />
+    <Folder Include="wwwroot\images\candidateDetail\" />
   </ItemGroup>
 
 </Project>

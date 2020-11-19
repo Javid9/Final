@@ -24,6 +24,12 @@ namespace JobSearchEndProject.DAL
         public DbSet<Location> Loactions { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<Bio> Bios { get; set; }
+        public DbSet<Apply> Applies { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<EmployerCategory> EmployerCategories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Subcomment> Subcomments { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
     }
 }

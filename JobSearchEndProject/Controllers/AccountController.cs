@@ -91,17 +91,40 @@ namespace JobSearchEndProject.Controllers
 
 
 
-        public async Task<IActionResult> Register()
+        public  IActionResult Register()
         {
-            //ViewBag.allRoles = new SelectList(await _roleManager.Roles.ToListAsync(), "Id", "Name");
+            List<IdentityRole> allroles = _roleManager.Roles.ToList();
+            List<IdentityRole> roles = new List<IdentityRole>();
+            foreach (var item in allroles)
+            {
+                if (item.Name != "Admin")
+                {
+                    roles.Add(item);
+                }
+            }
+
+            ViewBag.allRoles = new SelectList(roles, "Id", "Name");
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM registerVM)
+        public async Task<IActionResult> Register(RegisterVM registerVM, string role)
         {
-            //ViewBag.allRoles = new SelectList(await _roleManager.Roles.ToListAsync(), "Id", "Name");
+            List<IdentityRole> allroles = _roleManager.Roles.ToList();
+            List<IdentityRole> roles = new List<IdentityRole>();
+            foreach (var item in allroles)
+            {
+                if (item.Name != "Admin")
+                {
+                    roles.Add(item);
+                }
+            }
+
+            ViewBag.allRoles = new SelectList(roles, "Id", "Name");
+
+
 
             if (!ModelState.IsValid) return View();
             AppUser newUser = new AppUser
@@ -110,7 +133,7 @@ namespace JobSearchEndProject.Controllers
                 UserName = registerVM.Username,
                 Email = registerVM.Email,
             };
-
+            
             IdentityResult identityResult = await _userManager.CreateAsync(newUser, registerVM.Password);
             if (!identityResult.Succeeded)
             {
@@ -121,16 +144,27 @@ namespace JobSearchEndProject.Controllers
                 return View(registerVM);
             }
             newUser.isActivated = true;
-
+            IdentityRole dbRole = await _roleManager.FindByIdAsync(role);
             //await _userManager.AddToRoleAsync(newUser, Helper.Role.Admin.ToString());
             //await _userManager.AddToRoleAsync(newUser, "Employer");
             //await _userManager.AddToRoleAsync(newUser, "Employe
-            await _userManager.AddToRoleAsync(newUser, "Admin");
-            //var roleExsit = await _roleManager.RoleExistsAsync(role.);
-
+            
+   
+            await _userManager.AddToRoleAsync(newUser, dbRole.Name);
+           
 
             await _signInManager.SignInAsync(newUser, true);
-            return RedirectToAction("Index", "Home");
+
+            if (dbRole.ToString() == "Employee")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Create", "Employer");
+            }
+
+            
             
         }
 

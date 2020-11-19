@@ -1,0 +1,121 @@
+﻿@model Employer
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<section class="section mt-5">
+    <div class="container mt-5">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="text-dark">General Information</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <div class="job-detail mt-2 p-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                                <div class="resume-user  mb-5" id="div">
+                                    <i class="mdi mdi-account text-white"></i>
+                                </div>
+                                <input asp-for="Photo" type="file" accept="image/*" class="form-control" style="display:none" />
+
+                            </div>
+                        </div>
+
+                        <div class="custom-form">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Fullname" class="text-muted">Fullname</label>
+                                        <input asp-for="Fullname" class="form-control resume" placeholder="Fullname">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Email" class="text-muted">Email</label>
+                                        <input asp-for="Email" class="form-control resume" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="CompanyName" class="text-muted">CompanyName</label>
+                                        <input asp-for="CompanyName" class="form-control resume" placeholder="CompanyName">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Website" class="text-muted">Website</label>
+                                        <input asp-for="Website" class="form-control resume" placeholder="Website">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Phone" class="text-muted">Phone</label>
+                                        <input asp-for="Phone" class="form-control resume" placeholder="Phone">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group mt-2">
+                                    <p><i>Select Category</i></p>
+                                    @foreach (var ctg in ViewBag.Category)
+                                    {
+                                        <label class="mt-2">@ctg.CategoryName</label>
+                                        <input type="checkbox" class="mt-1" name="List" value="@ctg.Id" style="display:block" />
+                                    }
+                                    <span class="text-danger">@TempData["error"]</span>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="Address">Address</label>
+                                        <textarea asp-for="Address" rows="4" class="form-control resume" placeholder="Address"></textarea>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-lg-12">
+                                    <div class="form-group app-label">
+                                        <label asp-for="CompanyOverview">AboutMe</label>
+                                        <textarea asp-for="CompanyOverview" rows="4" class="form-control resume" placeholder="CompanyOverview"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <button type="submit" class="submitBnt btn btn-custom mt-5">Submit Resume</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+

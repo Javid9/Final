@@ -9,8 +9,9 @@ namespace JobSearchEndProject.Models
     public class Category
     {
         public int Id { get; set; }
-        [Required]
         public string CategoryName { get; set; }
         public ICollection<Job> Jobs { get; set; }
+        public ICollection<Apply> Applies { get; set; }
+        public ICollection<EmployerCategory> EmployerCategories { get; set; }
     }
 }

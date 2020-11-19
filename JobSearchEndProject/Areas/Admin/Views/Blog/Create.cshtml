@@ -1,0 +1,87 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body col-12">
+                    <h4 class="card-title">Create Category</h4>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" class="form-control" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Title"></label>
+                            <input asp-for="Title" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="AllDescription"></label>
+                            <input asp-for="AllDescription" class="form-control" placeholder="Title">
+                            <span asp-validation-for="AllDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description"></label>
+                            <input asp-for="Description" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CreateTime"></label>
+                            <input asp-for="CreateTime" class="form-control" placeholder="Title">
+                            <span asp-validation-for="CreateTime" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="AuthorDesc"></label>
+                            <input asp-for="AuthorDesc" class="form-control" placeholder="Title">
+                            <span asp-validation-for="AuthorDesc" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Facebook"></label>
+                            <input asp-for="Facebook" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Facebook" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Twitter"></label>
+                            <input asp-for="Twitter" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Twitter" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Whatsapp"></label>
+                            <input asp-for="Whatsapp" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Whatsapp" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Instagram"></label>
+                            <input asp-for="Instagram" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Instagram" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <select asp-for="CategoryId" asp-items="ViewBag.Category" class="nice-select">
+                                <option data-display="Category">Category</option>
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-success mr-2">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

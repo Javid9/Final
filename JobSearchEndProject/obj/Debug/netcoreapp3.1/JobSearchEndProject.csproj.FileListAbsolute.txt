@@ -170,3 +170,12 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ViewImports.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_partialSearchCandidate.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Candidate\Detail.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Employer\Create.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Employer\Detail.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Employer\JobList.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Employer\DeletedJobList.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Index.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Update.cshtml.g.cs
