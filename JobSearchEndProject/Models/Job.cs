@@ -50,6 +50,7 @@ namespace JobSearchEndProject.Models
         public AppUser AppUser { get; set; }
 
         public bool isActivated { get; set; }
+        public bool featuredJob { get; set; }
 
     }
 }

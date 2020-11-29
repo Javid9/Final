@@ -59,10 +59,17 @@ namespace JobSearchEndProject
 
             app.UseEndpoints(endpoints =>
             {
+                
+
                 endpoints.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute("default", "{controller=Account}/{action=Register}/{id?}");
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
 
             });
 

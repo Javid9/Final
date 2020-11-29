@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using JobSearchEndProject.Helpers;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.Services;
 using JobSearchEndProject.ViewModels;
 using JobSearchEndProject.ViewModels.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -42,7 +44,23 @@ namespace JobSearchEndProject.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            AppUser loginUser = await _userManager.FindByEmailAsync(login.Email);
+
+                //var user = await _userManager.FindByNameAsync(login.Email);
+                //if (user != null)
+                //{
+
+                //    if (!await _userManager.IsEmailConfirmedAsync(user))
+                //    {
+                //        ModelState.AddModelError(string.Empty, "emailinizi tesdiq etmemisiniz");
+                //        return View(login);
+                //    }
+                //}
+
+
+
+
+
+             AppUser loginUser = await _userManager.FindByEmailAsync(login.Email);
             if(loginUser == null)
             {
                 ModelState.AddModelError("", "Email or password wrong!!");
@@ -54,6 +72,9 @@ namespace JobSearchEndProject.Controllers
                 ModelState.AddModelError("", "Your transaction has been blocked");
                 return View(login);
             }
+
+
+
 
             var signInResult = await _signInManager.PasswordSignInAsync(loginUser,login.Password,login.RemmeberMe,true);
             if (signInResult.IsLockedOut)
@@ -68,7 +89,9 @@ namespace JobSearchEndProject.Controllers
                 return View(login);
             }
 
-            var role = await _userManager.GetRolesAsync(loginUser);
+
+
+                var role = await _userManager.GetRolesAsync(loginUser);
 
             foreach (var item in role)
             {
@@ -81,6 +104,8 @@ namespace JobSearchEndProject.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+
 
 
         public async Task<IActionResult> LogOut()
@@ -144,6 +169,7 @@ namespace JobSearchEndProject.Controllers
                 return View(registerVM);
             }
             newUser.isActivated = true;
+
             IdentityRole dbRole = await _roleManager.FindByIdAsync(role);
             //await _userManager.AddToRoleAsync(newUser, Helper.Role.Admin.ToString());
             //await _userManager.AddToRoleAsync(newUser, "Employer");
@@ -152,6 +178,17 @@ namespace JobSearchEndProject.Controllers
    
             await _userManager.AddToRoleAsync(newUser, dbRole.Name);
            
+
+
+
+            //var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            //var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
+            //EmailServices emailService = new EmailServices();
+            //await emailService.SendEmailAsync(newUser.Email,
+            //"Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
+
+
+
 
             await _signInManager.SignInAsync(newUser, true);
 
@@ -164,9 +201,34 @@ namespace JobSearchEndProject.Controllers
                 return RedirectToAction("Create", "Employer");
             }
 
-            
-            
+
         }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (result.Succeeded)
+                return RedirectToAction("Index", "Home");
+            else
+                return View("Error");
+        }
+
+
+
+
+
 
 
         //public async Task CreateRole()

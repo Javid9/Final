@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Job>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="jobList btn btn-success">
+        <a asp-action="FeaturedJobList">Selected Jobs</a>
+    </div>
+      
+   
+     <div class="jobs-all-container">
+        @foreach (var item in Model)
+        {
+                    <div class="job-row">
+                            <div class="company-logo-img">
+                                <img src="/images/@item.Image"  class="img-fluid mx-auto d-block">
+                            </div>
+                       
+                            <div class="job-descList">
+                                <h5 class="mb-2"><a href="#" class="text-dark">Title: @item.Title</a></h5>
+                                <p class="text-muted mb-0">Category: <b>@item.Category.CategoryName</b> </p>
+                                <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>@item.City.CityName</p>
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item mr-3">
+                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>@item.Country.CountryName</p>
+                                        <p class="text-muted mb-0">Email: @item.Email</p>
+                                        <p class="text-muted mb-0">Description: @item.Description</p>
+                                        <p class="text-muted mb-0">Experience: @item.Experience</p>
+                                        <p class="text-muted mb-0">Minx Salary: @item.MinSalary</p>
+                                        <p class="text-muted mb-0">Max Salary: @item.MaxSalary</p>
+                                        <p class="text-muted mb-0">User Name: @item.AppUser.UserName</p>
+                                        <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>8 days ago </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="jobs-button-row">
+                                <a asp-action="FeaturedJob" asp-route-id="@item.Id">Add Selected</a>
+                            </div>
+
+                        </div>
+
+
+        }
+    </div>
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+    <div style="position: absolute; left: 250px; top:100px;">
+        
+        <a asp-action="Archive" class="text-danger btn btn-outline-dark">Archive List</a>
+       
+    </div>
+<table class="table table-dark col-lg-10 " style="position:absolute;right:20px;top:180px;">
+    <thead class="text-success">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var contact in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@contact.Name</td>
+                <td>@contact.Subject</td>
+                <td>@contact.Message</td>
+                <td>@contact.Email</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@contact.Id"> <i class="fas fa-trash-alt text-danger"></i></a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+

@@ -17,6 +17,7 @@ namespace JobSearchEndProject.ViewModels
         public string AllDescription { get; set; }
         public DateTime CreateTime { get; set; }
         public string AuthorDesc { get; set; }
+        public string AuthorName { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }

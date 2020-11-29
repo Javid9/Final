@@ -33,8 +33,15 @@ using JobSearchEndProject.ViewModels.User;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\_ViewImports.cshtml"
+using JobSearchEndProject.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ac9cfc8b8c4eb9caa69692f3ba4aa6b459006064", @"/Views/Page/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53d8be59ac70f473ae4690afee60c7338b38433f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8a8b7d4b25bbb971e35642b73528f302d1b7d6e", @"/Views/_ViewImports.cshtml")]
     public class Views_Page_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_partialSubscribe", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -443,7 +450,7 @@ using JobSearchEndProject.ViewModels.User;
             BeginWriteAttribute("alt", " alt=\"", 19415, "\"", 19421, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"img-fluid d-block mx-auto\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- ABOUT CLIENTS END -->\r\n<!-- subscribe start -->\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ac9cfc8b8c4eb9caa69692f3ba4aa6b45900606426968", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ac9cfc8b8c4eb9caa69692f3ba4aa6b45900606427199", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

@@ -4,10 +4,10 @@
 }
 
     <div class="row">
-        <div class="col-12 grid-margin stretch-card">
+        <div class="col-10 grid-margin stretch-card"  style="position:absolute;right:0;top:120px">
             <div class="card">
                 <div class="card-body col-12">
-                    <h4 class="card-title">Create Category</h4>
+                    <h4 class="card-title">Create Blog</h4>
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label asp-for="Photo"></label>
@@ -24,61 +24,68 @@
 
                         <div class="form-group">
                             <label asp-for="AllDescription"></label>
-                            <input asp-for="AllDescription" class="form-control" placeholder="Title">
+                            <input asp-for="AllDescription" class="form-control" placeholder="AllDescription">
                             <span asp-validation-for="AllDescription" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Description"></label>
-                            <input asp-for="Description" class="form-control" placeholder="Title">
+                            <input asp-for="Description" class="form-control" placeholder="Description">
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="CreateTime"></label>
-                            <input asp-for="CreateTime" class="form-control" placeholder="Title">
+                            <input asp-for="CreateTime" class="form-control" placeholder="CreateTime">
                             <span asp-validation-for="CreateTime" class="text-danger"></span>
                         </div>
 
 
                         <div class="form-group">
                             <label asp-for="AuthorDesc"></label>
-                            <input asp-for="AuthorDesc" class="form-control" placeholder="Title">
+                            <input asp-for="AuthorDesc" class="form-control" placeholder="AuthorDesc">
+                            <span asp-validation-for="AuthorDesc" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="AuthorName"></label>
+                            <input asp-for="AuthorName" class="form-control" placeholder="AuthorName">
                             <span asp-validation-for="AuthorDesc" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Facebook"></label>
-                            <input asp-for="Facebook" class="form-control" placeholder="Title">
+                            <input asp-for="Facebook" class="form-control" placeholder="Facebook">
                             <span asp-validation-for="Facebook" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Twitter"></label>
-                            <input asp-for="Twitter" class="form-control" placeholder="Title">
+                            <input asp-for="Twitter" class="form-control" placeholder="Twitter">
                             <span asp-validation-for="Twitter" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Whatsapp"></label>
-                            <input asp-for="Whatsapp" class="form-control" placeholder="Title">
+                            <input asp-for="Whatsapp" class="form-control" placeholder="Whatsapp">
                             <span asp-validation-for="Whatsapp" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Instagram"></label>
-                            <input asp-for="Instagram" class="form-control" placeholder="Title">
+                            <input asp-for="Instagram" class="form-control" placeholder="Instagram">
                             <span asp-validation-for="Instagram" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <select asp-for="CategoryId" asp-items="ViewBag.Category" class="nice-select">
-                                <option data-display="Category">Category</option>
-                            </select>
+                            <div class="col-12">
+                                <select class="form-control" asp-for="CategoryId" asp-items="ViewBag.Category" class="nice-select">
+                                    <option data-display="Category">Category</option>
+                                </select>
+                            </div>
                         </div>
 
-
-                        <button type="submit" class="btn btn-success mr-2">Create</button>
+                        <button  type="submit" class="btn btn-success mr-2 form-control">Create</button>
                     </form>
                 </div>
             </div>

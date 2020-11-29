@@ -34,6 +34,13 @@ using JobSearchEndProject.ViewModels.User;
 #line hidden
 #nullable disable
 #nullable restore
+#line 5 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\_ViewImports.cshtml"
+using JobSearchEndProject.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\Job\Index.cshtml"
 using System.Globalization;
 
@@ -41,7 +48,7 @@ using System.Globalization;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"491892982685ca47cc6a8c1af723697bb30171a8", @"/Views/Job/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53d8be59ac70f473ae4690afee60c7338b38433f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8a8b7d4b25bbb971e35642b73528f302d1b7d6e", @"/Views/_ViewImports.cshtml")]
     public class Views_Job_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Job>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_partialSearch", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -116,7 +123,7 @@ using System.Globalization;
 <!-- end home -->
 
 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "491892982685ca47cc6a8c1af723697bb30171a89188", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "491892982685ca47cc6a8c1af723697bb30171a89419", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -306,7 +313,7 @@ using System.Globalization;
                             <div class=""float-left"">
                                 <h5 class=""text-dark mb-0 pt-2 f");
             WriteLiteral("-18\">Showing results 0-20</h5>\r\n                            </div>\r\n                            <div class=\"sort-button float-right\">\r\n                                <select class=\"nice-select\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a822555", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a822786", async() => {
                 WriteLiteral("Nothing");
             }
             );
@@ -321,7 +328,7 @@ using System.Globalization;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a823634", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a823865", async() => {
                 WriteLiteral("Web Developer");
             }
             );
@@ -337,7 +344,7 @@ using System.Globalization;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a824837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a825068", async() => {
                 WriteLiteral("PHP Developer");
             }
             );
@@ -353,7 +360,7 @@ using System.Globalization;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a826040", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a826271", async() => {
                 WriteLiteral("Web Designer");
             }
             );
@@ -388,7 +395,7 @@ using System.Globalization;
                                         <div class=""col-lg-2"">
                                             <div class=""company-logo-img"">
                                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "491892982685ca47cc6a8c1af723697bb30171a828415", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "491892982685ca47cc6a8c1af723697bb30171a828646", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -577,7 +584,7 @@ AddHtmlAttributeValue("", 13758, item.Image, 13758, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("</span>\r\n\r\n                                                <div class=\"mt-3\">\r\n                                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a839377", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a839608", async() => {
                 WriteLiteral("\r\n                                                         <input type=\"hidden\" name=\"userId\"");
                 BeginWriteAttribute("value", " value=\"", 17785, "\"", 17809, 1);
 #nullable restore
@@ -652,7 +659,7 @@ WriteAttributeValue("", 17793, item.AppUser.Id, 17793, 16, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                        <li class=\"page-item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a843626", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "491892982685ca47cc6a8c1af723697bb30171a843857", async() => {
 #nullable restore
 #line 294 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\Job\Index.cshtml"
                                                                                                                                           Write(i);
@@ -702,7 +709,7 @@ WriteAttributeValue("", 17793, item.AppUser.Id, 17793, 16, false);
 #nullable disable
             WriteLiteral("                            </ul>\r\n                        </nav>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n<!-- JOB LIST START -->\r\n\r\n\r\n\r\n");
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "491892982685ca47cc6a8c1af723697bb30171a847041", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "491892982685ca47cc6a8c1af723697bb30171a847272", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

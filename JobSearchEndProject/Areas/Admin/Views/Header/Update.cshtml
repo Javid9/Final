@@ -1,0 +1,32 @@
+﻿@model Header
+@{
+    ViewData["Title"] = "Update";
+}
+
+    <div class="row">
+        <div class="col-10 grid-margin stretch-card"style="position:absolute;right:0;top:120px">
+            <div class="card">
+                <div class="card-body col-12">
+                    <h4 class="card-title">Create Category</h4>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                       
+                        <div class="form-group">
+                            <label asp-for="Title"></label>
+                            <input asp-for="Title" class="form-control" placeholder="Title">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Description"></label>
+                            <input asp-for="Description" class="form-control" placeholder="Description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mr-2">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

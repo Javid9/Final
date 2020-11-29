@@ -109,7 +109,6 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Candidate\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Page\Index.cshtml.g.cs
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -162,8 +161,6 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csprojAssemblyReference.cache
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
@@ -179,3 +176,17 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Update.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Header\Index.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contacts\Index.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contacts\Archive.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Header\Create.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Header\Update.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Jobs\Index.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Jobs\FeaturedJobList.cshtml.g.cs

@@ -1893,7 +1893,7 @@ a.job-list[data-toggle=collapse].collapsed:before {
   background-color: #ff4f6c;
   top: 0;
   height: 60px;
-  width: 60px;
+  width: 80px;
   border-radius: 4px;
   padding-top: 8px;
 }

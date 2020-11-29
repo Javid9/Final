@@ -80,6 +80,7 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
                 Instagram=blog.Instagram,
                 Twitter=blog.Twitter,
                 Whatsapp=blog.Whatsapp,
+                AuthorName=blog.AuthorName,
                 CategoryId=blog.CategoryId,
 
             };
@@ -120,6 +121,7 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
             blog.Twitter = blogUpdate.Twitter;
             blog.Instagram = blogUpdate.Instagram;
             blog.Whatsapp = blogUpdate.Whatsapp;
+            blog.AuthorName = blogUpdate.AuthorName;
             blog.CategoryId= blogUpdate.CategoryId;
 
 

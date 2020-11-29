@@ -30,6 +30,9 @@ namespace JobSearchEndProject.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Subcomment> Subcomments { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactInfo> ContactInfos { get; set; }
+        public DbSet<Header> Headers { get; set; }
 
     }
 }

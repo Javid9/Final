@@ -37,19 +37,28 @@ namespace JobSearchEndProject.Controllers
 
             //ViewBag.Time = DateTime.Now.Minute;
             
-            ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 6);
+            ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 5);
             ViewBag.Page = page;
             if (page == null)
             {
-                return View(_context.Jobs.Where(x=>x.isActivated== true).OrderByDescending(p => p.Id).Take(6).Include(c => c.Category)
+                return View(_context.Jobs.Where(x=>x.isActivated== true).OrderByDescending(p => p.Id).Take(5).Include(c => c.Category)
                 .Include(c => c.Country).Include(c=>c.City).Include(x => x.AppUser).ToList());
             }
             else
             {
-                return View(_context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 6)
-                 .Take(6).Include(c => c.Category)
+                return View(_context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 4)
+                 .Take(4).Include(c => c.Category)
                 .Include(c => c.Country).Include(c => c.City).Include(x=>x.AppUser).ToList());
             }
+
+            //if (page == null)
+            //{
+            //    return View(_context.Jobs.Include(p => p.Category).OrderByDescending(p => p.Id).Take(5).ToList());
+            //}
+            //else
+            //{
+            //    return View(_db.Products.Include(p => p.Category).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 5).Take(5).ToList());
+            //}
         }
 
         [HttpPost]

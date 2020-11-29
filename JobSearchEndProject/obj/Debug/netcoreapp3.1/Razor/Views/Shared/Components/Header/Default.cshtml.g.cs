@@ -33,8 +33,15 @@ using JobSearchEndProject.ViewModels.User;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\Views\_ViewImports.cshtml"
+using JobSearchEndProject.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"81434a58748eca00ed3a50c919ffeacf1dc29a7b", @"/Views/Shared/Components/Header/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53d8be59ac70f473ae4690afee60c7338b38433f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8a8b7d4b25bbb971e35642b73528f302d1b7d6e", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Header_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Bio>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Account", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -140,7 +147,7 @@ using JobSearchEndProject.ViewModels.User;
 #line hidden
 #nullable disable
             WriteLiteral("</a></li>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b14817", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b15048", async() => {
                 WriteLiteral("LogOut");
             }
             );
@@ -168,7 +175,7 @@ using JobSearchEndProject.ViewModels.User;
 #line hidden
 #nullable disable
             WriteLiteral("                        <li class=\"list-inline-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b16582", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b16813", async() => {
                 WriteLiteral("<button class=\"header-login\">Login</button>");
             }
             );
@@ -194,7 +201,7 @@ using JobSearchEndProject.ViewModels.User;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"javascript:void(0);\">\r\n                            <select id=\"select-lang\" class=\"demo-default\" placeholder=\"Language\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b18540", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b18771", async() => {
                 WriteLiteral("Language");
             }
             );
@@ -210,7 +217,7 @@ using JobSearchEndProject.ViewModels.User;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b19734", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b19965", async() => {
                 WriteLiteral("English");
             }
             );
@@ -226,7 +233,7 @@ using JobSearchEndProject.ViewModels.User;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b20927", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b21158", async() => {
                 WriteLiteral("Spanish");
             }
             );
@@ -242,7 +249,7 @@ using JobSearchEndProject.ViewModels.User;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b22120", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b22351", async() => {
                 WriteLiteral("French");
             }
             );
@@ -258,7 +265,7 @@ using JobSearchEndProject.ViewModels.User;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b23312", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b23543", async() => {
                 WriteLiteral("Az");
             }
             );
@@ -286,9 +293,9 @@ using JobSearchEndProject.ViewModels.User;
         <!-- Logo container-->
         <div>
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b24768", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b24999", async() => {
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "81434a58748eca00ed3a50c919ffeacf1dc29a7b25040", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "81434a58748eca00ed3a50c919ffeacf1dc29a7b25271", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -314,7 +321,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "81434a58748eca00ed3a50c919ffeacf1dc29a7b26909", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "81434a58748eca00ed3a50c919ffeacf1dc29a7b27140", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -372,7 +379,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
 
                 <li class=""has-submenu"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b30160", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b30391", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -390,7 +397,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n\r\n                <li class=\"has-submenu\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b31619", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b31850", async() => {
                 WriteLiteral("Jobs");
             }
             );
@@ -418,7 +425,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    <li class=\"has-submenu\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b33505", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b33736", async() => {
                 WriteLiteral("Candidates");
             }
             );
@@ -436,7 +443,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        <span class=\"menu-arrow\"></span>\r\n                        <ul class=\"submenu\">\r\n                            <li>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b35055", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b35286", async() => {
                 WriteLiteral("Candidates Profile");
             }
             );
@@ -462,7 +469,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                <li class=\"has-submenu\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b36861", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b37092", async() => {
                 WriteLiteral("Employers");
             }
             );
@@ -480,7 +487,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    <span class=\"menu-arrow\"></span>\r\n                    <ul class=\"submenu\">\r\n                        <li>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b38394", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b38625", async() => {
                 WriteLiteral("Employer Jobs");
             }
             );
@@ -513,7 +520,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b40944", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b41175", async() => {
                 WriteLiteral("Deleted Jobs");
             }
             );
@@ -546,7 +553,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"has-submenu\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b43560", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b43791", async() => {
                 WriteLiteral("Blog");
             }
             );
@@ -580,7 +587,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
 
                 <li class=""has-submenu"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b45538", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b45769", async() => {
                 WriteLiteral("Pages");
             }
             );
@@ -621,7 +628,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
                         <li>
                             <a href=""#ModalCenter1"" class=""nav-link"" data-toggle=""modal"" ");
             WriteLiteral("data-target=\"#ModalCenter1\">Register</a>\r\n                        </li>\r\n                    </ul>\r\n                </li>\r\n\r\n                <li class=\"has-submenu\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b48186", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b48417", async() => {
                 WriteLiteral("contact");
             }
             );
@@ -639,7 +646,7 @@ AddHtmlAttributeValue("", 2189, Model.Logo, 2189, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b49594", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81434a58748eca00ed3a50c919ffeacf1dc29a7b49825", async() => {
                 WriteLiteral("<i class=\"mdi mdi-cloud-upload\"></i> Post a Job");
             }
             );
