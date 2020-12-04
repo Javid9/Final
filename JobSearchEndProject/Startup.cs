@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.Services.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -47,7 +49,7 @@ namespace JobSearchEndProject
                  identityOption.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                  identityOption.Lockout.AllowedForNewUsers = true;
              }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-
+            services.AddAutoMapper(typeof(MappingProfile));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

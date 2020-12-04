@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Job>
+﻿@model JobVM
 @using System.Globalization
 @{
     ViewData["Title"] = "Index";
@@ -24,8 +24,51 @@
     </div>
 </section>
 <!-- end home -->
+@*<partial name="_partialSearch" />*@
 
-<partial name="_partialSearch" />
+<!-- search start -->
+<div class="container">
+    <div class="home-form-position">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="home-registration-form bg-white job-list-reg-form p-4 mb-3">
+                    @**@<form class="registration-form">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-briefcase"></i>
+                                    <input type="text" id="keywordInput" class="form-control registration-input-box" placeholder="Job keybords...">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-list-alt"></i>
+                                    <select id="select-category" class="demo-default" placeholder="Categories...">
+                                        <option value="">Categories...</option>
+                                        @foreach (var item in Model.Categories)
+                                        {
+                                            <option value="@item.Id">@item.CategoryName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="registration-form-box">
+                                    <input type="button" id="searchBtn" class="submitBnt btn btn-custom btn-block" value="Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- search end -->
+
+<section id="main">
+
+</section>
 
 <!-- JOB LIST START -->
 <section class="section pt-0">
@@ -192,83 +235,83 @@
                                 <h5 class="text-dark mb-0 pt-2 f-18">Showing results 0-20</h5>
                             </div>
                             <div class="sort-button float-right">
-                                <select class="nice-select">
-                                    <option data-display="Select">Nothing</option>
-                                    <option value="1">Web Developer</option>
-                                    <option value="2">PHP Developer</option>
-                                    <option value="3">Web Designer</option>
+                                <select id="categorySelec" class="nice-select">
+                                    <option value="">Categories...</option>
+                                    @foreach (var item in Model.Categories)
+                                    {
+                                        <option value="@item.Id">@item.CategoryName</option>
+                                    }
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                @* dbden gelenler *@
-                @foreach (var item in Model)
-                {
-                    var minutesPassed = (int)(DateTime.Now - item.CreateTime).TotalMinutes;
-                    var hoursPassed = (int)(DateTime.Now - item.CreateTime).TotalHours;
-                    var daysPassed = (int)(DateTime.Now - item.CreateTime).TotalDays;
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="job-list-box mt-4">
-                                <div class="p-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-2">
-                                            <div class="company-logo-img">
-                                                <img src="~/images/@item.Image" alt="" class="img-fluid mx-auto d-block">
+                <section id="boom">
+                    @foreach (var item in Model.Jobs)
+                    {
+                        var minutesPassed = (int)(DateTime.Now - item.CreateTime).TotalMinutes;
+                        var hoursPassed = (int)(DateTime.Now - item.CreateTime).TotalHours;
+                        var daysPassed = (int)(DateTime.Now - item.CreateTime).TotalDays;
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="job-list-box mt-4">
+                                    <div class="p-3 ">
+                                        <div class="row align-items-center ">
+                                            <div class="col-lg-2">
+                                                <div class="company-logo-img">
+                                                    <img src="~/images/@item.Image" alt="" class="img-fluid mx-auto d-block">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-7 col-md-9">
-                                            <div class="job-list-desc">
-                                                <h5 class="mb-2"><a href="#" class="text-dark">Title: @item.Title</a></h5>
-                                                <p class="text-muted mb-0">Category: <b>@item.Category.CategoryName</b> </p>
-                                                <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>@item.City.CityName</p>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item mr-3">
-                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>@item.Country.CountryName</p>
-                                                        <p class="text-muted mb-0">Email: @item.Email</p>
-                                                        <p class="text-muted mb-0">Description: @item.Description</p>
-                                                        <p class="text-muted mb-0">Experience: @item.Experience</p>
-                                                        <p class="text-muted mb-0">Minx Salary: @item.MinSalary</p>
-                                                        <p class="text-muted mb-0">Max Salary: @item.MaxSalary</p>
-                                                        <p class="text-muted mb-0">User Name: @item.AppUser.UserName</p>
-                                                        @*<p class="text-muted mb-0">User Name: @item.Employer.CompanyName</p>*@
+                                            <div class="col-lg-7 col-md-9">
+                                                <div class="job-list-desc">
+                                                    <h5 class="mb-2"><a href="#" class="text-dark">Title: @item.Title</a></h5>
+                                                    <p class="text-muted mb-0">Category: <b>@item.Category.CategoryName</b> </p>
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>@item.City.CityName</p>
+                                                    <ul class="list-inline mb-0">
+                                                        <li class="list-inline-item mr-3">
+                                                            <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>@item.Country.CountryName</p>
+                                                            <p class="text-muted mb-0">Email: @item.Email</p>
+                                                            <p class="text-muted mb-0">Description: @item.Description</p>
+                                                            <p class="text-muted mb-0">Experience: @item.Experience</p>
+                                                            <p class="text-muted mb-0">Minx Salary: @item.MinSalary</p>
+                                                            <p class="text-muted mb-0">Max Salary: @item.MaxSalary</p>
+                                                            <p class="text-muted mb-0">User Name: @item.AppUser.UserName</p>
 
-                                                    </li>
+                                                        </li>
 
-                                                    @if (minutesPassed < 60)
-                                                    {
-                                                        <li class="list-inline-item">
-                                                            <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@minutesPassed minutes ago </p>
-                                                        </li>
-                                                    }
-                                                    else if (hoursPassed < 24)
-                                                    {
+                                                        @if (minutesPassed < 60)
+                                                        {
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@minutesPassed minutes ago </p>
+                                                            </li>
+                                                        }
+                                                        else if (hoursPassed < 24)
+                                                        {
 
-                                                        <li class="list-inline-item">
-                                                            <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@hoursPassed hours ago </p>
-                                                        </li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li class="list-inline-item">
-                                                            <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@daysPassed days ago </p>
-                                                        </li>
-                                                    }
-                                                </ul>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@hoursPassed hours ago </p>
+                                                            </li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@daysPassed days ago </p>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3">
-                                            <div class="job-list-button-sm text-right">
-                                                <span class="badge badge-success">@item.JobType</span>
+                                            <div class="col-lg-3 col-md-3">
+                                                <div class="job-list-button-sm text-right">
+                                                    <span class="badge badge-success">@item.JobType</span>
 
-                                                <div class="mt-3">
-                                                    <form  method="post">
-                                                         <input type="hidden" name="userId" value="@item.AppUser.Id"/>
-                                                        <button type="submit" class="apply-btn-sm btn-custom">Apply</button>
-                                                    </form>
+                                                    <div class="mt-3">
+                                                        <form method="post">
+                                                            <input type="hidden" name="userId" value="@item.AppUser.Id" />
+                                                            <button type="submit" class="apply-btn-sm btn-custom">Apply</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -276,9 +319,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                }
+                    }
+                </section>
+
+
+                @* dbden gelenler *@
+               
                 <div class="row">
                     <div class="col-lg-12">
                         <nav aria-label="Page navigation example">
@@ -305,25 +352,167 @@
 <!-- JOB LIST START -->
 
 
+<partial name="_partialSubscribe" />
 
-@*@section Script{
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+
+
+
+@section Scripts
+    {
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
+        let keywordInput = document.getElementById('keywordInput');
+        let selectCategory = document.getElementById('select-category');
+        let searchBtn = document.getElementById('searchBtn');
 
-        $(".lorem").click(function () {
-            var page = $(this).text();
-            alert(page)
-            $.ajax({
-                type: 'Get',
-                url: '/Job/Index?page=' + page,
-                success: function (res) {
-                    
-                }
-            })
+
+        searchBtn.addEventListener('click', function () {
+            $('#main').html('')
+            let formData = new FormData();
+            formData.append("keyword", keywordInput.value);
+            formData.append("categoryId", selectCategory.value);
+            axios.post('/Job/Search', formData)
+                .then(function (response) {
+                    console.log(response.data);
+                    $.each(response.data, function (index, element) {
+                        console.log(element);
+                        
+                         $('#main').append(
+                            ` 
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4">
+                                        <div class="company-logo-img">
+                                            <img src="${"images/" + element.image}" alt="" class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h5 class="mb-2"><a href="#" class="text-dark">Title: ${element.title}</a></h5>
+                                            <p class="text-muted mb-0">Category: <b>${element.category}</b> </p>
+                                            <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>${element.city}</p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>${element.country}</p>
+                                                    <p class="text-muted mb-0">Email: ${element.email}</p>
+                                                    <p class="text-muted mb-0">Description: ${element.description}</p>
+                                                    <p class="text-muted mb-0">Experience: ${element.experience}</p>
+                                                    <p class="text-muted mb-0">Minx Salary: ${element.minSalary}</p>
+                                                    <p class="text-muted mb-0">Max Salary: ${element.maxSalary}</p>
+                                                    <p class="text-muted mb-0">User Name: ${element.appUser}</p>
+
+                                                    </li>
+
+                                                    <li class="list-inline-item">
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>8 days ago </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                        )
+
+                    });
+
+                })
+
+                .catch(function (error) {
+                    if (error.response) {
+                        let errorObj = error.response.data;
+                        for (let errors in errorObj) {
+                            let error = errorObj[errors];
+                            console.log(error);
+                        }
+                    }
+                });
+
         })
+
+
+
+
+
+
+
+        //second pART
+            let categorySelec = document.getElementById("categorySelec");
+          
+            categorySelec.addEventListener('change', (event) => {
+                $('#boom').html('')
+                console.log(event.target.value);
+                let formData = new FormData();
+                formData.append("categoryid", categorySelec.value)
+
+                axios.post('/Job/CategorySelect', formData)
+                    .then(function (response) {
+                        console.log(response.data);
+                        $.each(response.data, function (index, element) {
+                            console.log(element);
+                            //$(".items-job").html('')
+                            $('#boom').append(
+                                ` 
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4">
+                                        <div class="company-logo-img">
+                                            <img src="${"images/" + element.image}" alt="" class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h5 class="mb-2"><a href="#" class="text-dark">Title: ${element.title}</a></h5>
+                                            <p class="text-muted mb-0">Category: <b>${element.category}</b> </p>
+                                            <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>${element.city}</p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>${element.country}</p>
+                                                    <p class="text-muted mb-0">Email: ${element.email}</p>
+                                                    <p class="text-muted mb-0">Description: ${element.description}</p>
+                                                    <p class="text-muted mb-0">Experience: ${element.experience}</p>
+                                                    <p class="text-muted mb-0">Minx Salary: ${element.minSalary}</p>
+                                                    <p class="text-muted mb-0">Max Salary: ${element.maxSalary}</p>
+                                                    <p class="text-muted mb-0">User Name: ${element.appUser}</p>
+
+                                                    </li>
+
+                                                    <li class="list-inline-item">
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>8 days ago </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                            )
+
+                        });
+
+                    })
+
+
+                    .catch(function (error) {
+                        if (error.response) {
+                            let errorObj = error.response.data;
+                            for (let errors in errorObj) {
+                                let error = errorObj[errors];
+                                console.log(error);
+                            }
+                        }
+                    });
+
+
+            });  
+       
+        
+
+
     </script>
+}
 
- }*@
 
-<partial name="_partialSubscribe"/>

@@ -4,9 +4,12 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.Services.Dto;
+using JobSearchEndProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -22,43 +25,43 @@ namespace JobSearchEndProject.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _rolemanager;
-        public JobController(AppDbContext context, IWebHostEnvironment env
-            , UserManager<AppUser> userManager, RoleManager<IdentityRole> rolemanager)
+        private readonly IMapper _mapper;
+
+        public JobController(AppDbContext context,
+                            IWebHostEnvironment env,
+                           UserManager<AppUser> userManager,
+                           RoleManager<IdentityRole> rolemanager,
+                           IMapper mapper)
         {
             _context = context;
             _env = env;
             _userManager = userManager;
             _rolemanager = rolemanager;
+            _mapper = mapper;
         }
        
 
         public IActionResult Index(int? page)
         {
-
             //ViewBag.Time = DateTime.Now.Minute;
-            
             ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 5);
             ViewBag.Page = page;
+            JobVM jobVM = new JobVM();
             if (page == null)
             {
-                return View(_context.Jobs.Where(x=>x.isActivated== true).OrderByDescending(p => p.Id).Take(5).Include(c => c.Category)
-                .Include(c => c.Country).Include(c=>c.City).Include(x => x.AppUser).ToList());
+                jobVM.Categories = _context.Categories.ToList();
+                jobVM.Jobs = _context.Jobs.Where(x => x.isActivated == true).OrderByDescending(p => p.Id).Take(5).Include(c => c.Category)
+                .Include(c => c.Country).Include(c => c.City).Include(x => x.AppUser).ToList();
+                return View(jobVM);
             }
             else
             {
-                return View(_context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 4)
-                 .Take(4).Include(c => c.Category)
-                .Include(c => c.Country).Include(c => c.City).Include(x=>x.AppUser).ToList());
+                jobVM.Categories = _context.Categories.ToList();
+                jobVM.Jobs = _context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 4)
+                 .Take(5).Include(c => c.Category)
+                .Include(c => c.Country).Include(c => c.City).Include(x => x.AppUser).ToList();
+                return View(jobVM);
             }
-
-            //if (page == null)
-            //{
-            //    return View(_context.Jobs.Include(p => p.Category).OrderByDescending(p => p.Id).Take(5).ToList());
-            //}
-            //else
-            //{
-            //    return View(_db.Products.Include(p => p.Category).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 5).Take(5).ToList());
-            //}
         }
 
         [HttpPost]
@@ -162,6 +165,46 @@ namespace JobSearchEndProject.Controllers
             return RedirectToAction("Index", "Home");
             
 
+        }
+
+
+
+        public IActionResult Search([FromForm] SearchVM searchVm)
+        {
+            if (searchVm.Keyword != null && searchVm.CategoryId != 0)
+            {
+                var jobs = _context.Jobs.Where(x => x.Title.ToLower().Contains(searchVm.Keyword.ToLower()) && x.CategoryId == searchVm.CategoryId).Take(5)
+                    .Include(c => c.Category)
+                    .Include(c => c.City)
+                    .Include(c => c.AppUser)
+                    .Include(c => c.Country)
+                    .ToList();
+                var mapJobs = _mapper.Map<List<JobsReturnDto>>(jobs);
+
+                return Ok(mapJobs);
+            }
+            return Ok("");
+        }
+
+
+        public IActionResult CategorySelect([FromForm] CategorySelectVM categorySelectVM)
+        {
+            if(categorySelectVM.CategoryId != 0)
+            {
+                
+                var jobs = _context.Jobs.Where(x=>x.CategoryId == categorySelectVM.CategoryId).Take(3)
+                    .Include(c => c.Category)
+                    .Include(c => c.City)
+                    .Include(c => c.AppUser)
+                    .Include(c => c.Country)
+                    .ToList();
+
+                var mapJobs = _mapper.Map<List<JobsReturnDto>>(jobs);
+
+                return Ok(mapJobs);
+            }
+
+            return Ok("");
         }
 
 

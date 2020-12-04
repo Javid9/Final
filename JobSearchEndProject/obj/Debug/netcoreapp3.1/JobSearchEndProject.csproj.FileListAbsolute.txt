@@ -186,7 +186,9 @@ C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
-C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Jobs\Index.cshtml.g.cs
 C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Jobs\FeaturedJobList.cshtml.g.cs
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.csproj.CoreCompileInputs.cache
+C:\Users\Cavid\source\repos\P116\AspCore\JobSearchEndProject\JobSearchEndProject\obj\Debug\netcoreapp3.1\JobSearchEndProject.MvcApplicationPartsAssemblyInfo.cache

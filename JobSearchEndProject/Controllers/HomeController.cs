@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using AutoMapper;
 using JobSearchEndProject.DAL;
+using JobSearchEndProject.Services.Dto;
+using JobSearchEndProject.ViewModels;
 using JobSearchEndProject.ViewModels.Home;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JobSearchEndProject.Controllers
 {
@@ -15,28 +23,40 @@ namespace JobSearchEndProject.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
-        public HomeController(AppDbContext context)
+        private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
+        public HomeController(AppDbContext context,IMapper mapper, IWebHostEnvironment env)
         {
             _context = context;
+            _mapper = mapper;
+            _env = env;
         }
-        public IActionResult Index(string keywordInput,int selectCategory, int id)
+        public IActionResult Index()
         {
             HomeVM modelVM = new HomeVM();
             modelVM.Header = _context.Headers.FirstOrDefault();
             modelVM.Categories = _context.Categories.Include(x => x.Jobs).ToList();
             modelVM.JobsTypes = _context.Jobs.Include(x => x.Category).Include(c => c.City).ToList();
-            if (keywordInput!=null&&selectCategory!=0)
-            {
-               modelVM.Jobs= _context.Jobs.Where(x=>x.Title.ToLower().Contains(keywordInput.ToLower().ToLower()) && x.CategoryId == selectCategory).Take(5)
-                   .Include(c => c.Category)
-                   .Include(c => c.City)
-                   .Include(c => c.AppUser)
-                   .Include(c => c.Country)
-                   .ToList();
-                return View(modelVM);
-            }
+
             return View(modelVM);
            
+        }
+
+        public IActionResult Search([FromForm] SearchVM searchVm)
+        {
+            if (searchVm.Keyword != null && searchVm.CategoryId != 0)
+            {
+                var jobs=_context.Jobs.Where(x => x.Title.ToLower().Contains(searchVm.Keyword.ToLower()) && x.CategoryId == searchVm.CategoryId).Take(5)
+                    .Include(c => c.Category)
+                    .Include(c => c.City)
+                    .Include(c => c.AppUser)
+                    .Include(c => c.Country)
+                    .ToList();
+              var mapJobs =  _mapper.Map<List<JobsReturnDto>>(jobs);
+               
+                return Ok(mapJobs);
+            }
+            return Ok("");
         }
 
 

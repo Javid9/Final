@@ -12,5 +12,6 @@ namespace JobSearchEndProject.ViewModels.Home
         public ICollection<Category> Categories { get; set; }
         public ICollection<Job> Jobs { get; set; }
         public ICollection<Job> JobsTypes { get; set; }
+
     }
 }

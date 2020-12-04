@@ -25,10 +25,10 @@
                                         <div class="col-lg-4 col-md-6">
                                             <div class="registration-form-box">
                                                 <i class="fa fa-briefcase"></i>
-                                                <input type="text"  name="keywordInput" class="form-control registration-input-box" placeholder="Job keybords...">
+                                                <input type="text" name="keywordInput" id="keywordInput" class="form-control registration-input-box" placeholder="Job keybords...">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-lg-4 col-md-6">
                                             <div class="registration-form-box">
                                                 <i class="fa fa-list-alt"></i>
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-6">
                                             <div class="registration-form-box">
-                                                <input type="submit" class="submitBnt btn btn-custom btn-block" value="Submit">
+                                                <input type="button"  id="searchBtn" class="submitBnt btn btn-custom btn-block" value="Submit">
                                             </div>
                                         </div>
                                     </div>
@@ -59,52 +59,8 @@
     </div>
 </section>
 <!-- end home -->
-<section>
-    @if (Model.Jobs!=null)
-    {
-        @foreach (var item in Model.Jobs)
-        {
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="job-list-box mt-4">
-                        <div class="p-3">
-                            <div class="row align-items-center">
-                                <div class="col-lg-4">
-                                    <div class="company-logo-img">
-                                        <img src="/images/4123422f-3b7b-4c7e-966f-1d537f11265eDeadlineTimeByPCbots.jpg" alt="" class="img-fluid mx-auto d-block">
-                                    </div>
-                                </div>
-                                <div class="col-lg-7 col-md-9">
-                                    <div class="job-list-desc">
-                                        <h5 class="mb-2"><a href="#" class="text-dark">Title: @item.Title</a></h5>
-                                        <p class="text-muted mb-0">Category: <b>@item.Category.CategoryName</b> </p>
-                                        <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>@item.City.CityName</p>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item mr-3">
-                                                <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>@item.Country.CountryName</p>
-                                                <p class="text-muted mb-0">Email: @item.Email</p>
-                                                <p class="text-muted mb-0">Description: @item.Description</p>
-                                                <p class="text-muted mb-0">Experience: @item.Experience</p>
-                                                <p class="text-muted mb-0">Minx Salary: @item.MinSalary</p>
-                                                <p class="text-muted mb-0">Max Salary: @item.MaxSalary</p>
-                                                <p class="text-muted mb-0">User Name: @item.AppUser.UserName</p>
+<section id="main">
 
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>8 days ago </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-
-    }
 </section>
 <!-- popular category start -->
 <section class="section">
@@ -157,7 +113,7 @@
             <div class="col-lg-12">
                 <ul class="nav nav-pills job-tab justify-content-center mb-5" id="pills-tab" role="tablist">
                     <li id="recentJobbb" class="nav-item">
-                        <a class="nav-link active" id="recent-job-tab" data-toggle="pill" href="#recent-job" role="tab" aria-controls="recent-job" aria-selected="true">Recent Jobs</a>  
+                        <a class="nav-link active" id="recent-job-tab" data-toggle="pill" href="#recent-job" role="tab" aria-controls="recent-job" aria-selected="true">Recent Jobs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="featured-job-tab" data-toggle="pill" href="#featured-job" role="tab" aria-controls="featured-job" aria-selected="false">Featured Jobs</a>
@@ -175,7 +131,7 @@
                             <div class="col-lg-12">
 
 
-                                @foreach (var item in Model.JobsTypes.OrderByDescending(x=>x.Id))
+                                @foreach (var item in Model.JobsTypes.OrderByDescending(x => x.Id))
                                 {
                                     <div class="job-box bg-white mt-4">
                                         <div class="p-4">
@@ -222,7 +178,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <a href="#" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
+                                                        <a asp-controller="Job" asp-action="Apply" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -262,7 +218,7 @@
                         <div class="row mb-5">
                             <div class="col-lg-12">
 
-                                @foreach (var item in Model.JobsTypes.Where(x=>x.featuredJob==true))
+                                @foreach (var item in Model.JobsTypes.Where(x => x.featuredJob == true))
                                 {
                                     <div class="job-box bg-white mt-4">
                                         <div class="p-4">
@@ -646,7 +602,6 @@
     </div>
 </section>
 <!-- counter end -->
-
 <!-- testimonial start -->
 <section class="section">
     <div class="container">
@@ -744,7 +699,6 @@
     </div>
 </section>
 <!-- testimonial end -->
-
 <!-- blog start -->
 <section class="section bg-light">
     <div class="container">
@@ -825,9 +779,85 @@
 <partial name="_partialSubscribe" />
 
 
-@section Scripts{ 
-    <script>
-    
 
+@section Scripts
+    {
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        let keywordInput = document.getElementById('keywordInput');
+        let selectCategory = document.getElementById('select-category');
+        let searchBtn = document.getElementById('searchBtn');
+       
+        //<div class="row">
+        //    <div class="col-lg-12">
+        //        <div class="job-list-box mt-4">
+        searchBtn.addEventListener('click', function () {
+            $("#main").html('');
+            let formData = new FormData();
+            formData.append("keyword", keywordInput.value);
+            formData.append("categoryId", selectCategory.value);
+            //console.log(keywordInput.value);
+          
+            axios.post('/Home/Search', formData)
+                .then(function (response) {
+                    //console.log(response.data);
+                    $.each(response.data, function (index, element) {
+                        //console.log(element);
+                     var main = $('#main').append(
+                            ` 
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4">
+                                        <div class="company-logo-img">
+                                            <img src="${"images/" + element.image}" alt="" class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h5 class="mb-2"><a href="#" class="text-dark">Title: ${element.title}</a></h5>
+                                            <p class="text-muted mb-0">Category: <b>${element.category}</b> </p>
+                                            <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>${element.city}</p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>${element.country}</p>
+                                                    <p class="text-muted mb-0">Email: ${element.email}</p>
+                                                    <p class="text-muted mb-0">Description: ${element.description}</p>
+                                                    <p class="text-muted mb-0">Experience: ${element.experience}</p>
+                                                    <p class="text-muted mb-0">Minx Salary: ${element.minSalary}</p>
+                                                    <p class="text-muted mb-0">Max Salary: ${element.maxSalary}</p>
+                                                    <p class="text-muted mb-0">User Name: ${element.appUser}</p>
+
+                                                    </li>
+
+                                                    <li class="list-inline-item">
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>8 days ago </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                        )
+                       
+                    });
+                    
+                    //$(this).remove();
+                    })
+
+                    .catch(function (error) {
+                        if (error.response) {
+                            let errorObj = error.response.data;
+                            for (let errors in errorObj) {
+                                let error = errorObj[errors];
+                                console.log(error);
+                            }
+                        }
+                    });
+
+            })
+       
     </script>
 }
