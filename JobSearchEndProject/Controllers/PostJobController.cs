@@ -87,6 +87,7 @@ namespace JobSearchEndProject.Controllers
                 CategoryId = job.CategoryId,
                 CountryId = job.CountryId,
                 EducationLevelId = job.EducationLevelId,
+                isActivated= true,
                 CityId = job.CityId,
                 CreateTime = DateTime.Now,
                 AppUserId= user.Id,

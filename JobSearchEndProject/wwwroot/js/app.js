@@ -1,9 +1,3 @@
-/* Theme Name: Joobsy - Responsive Landing Page Template
-   Author: Themesdesign
-   Version: 1.0.0
-   File Description: Main JS file of the template
-*/
-
 
 (function ($) {
 
@@ -18,6 +12,31 @@
         },
         dropdownParent: 'body'
     });
+
+
+    // Blog Search
+
+    $(document).ready(function () {
+        //Search
+        $(document).on("keyup", "#input-search", function () {
+            let search = $(this).val().trim();
+            $("#searchList li").slice(1).remove();
+            if (search.length > 0) {
+                $.ajax({
+                    url: "/Blog/Search?search=" + search,
+                    type: "Get",
+                    success: function (res) {
+                        $("#searchList").append(res);
+                    }
+                })
+            }
+
+        })
+    })
+
+
+
+
 
     //file upload
 

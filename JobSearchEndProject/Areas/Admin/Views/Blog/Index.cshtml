@@ -12,55 +12,57 @@
                 <h4 class="card-title">Blog Table</h4>
                 @if (Model.Count() != 0)
                 {
-                    <div class="table-responsive pt-3">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Image
-                                    </th>
-                                    <th>
-                                        Title
-                                    </th>
-                                    <th>
-                                        AllDescirption
-                                    </th>
-                                    <th>
-                                        Description
-                                    </th>
-                                    <th>
-                                        Category
-                                    </th>
-                                    <th>
-                                        CreateTime
-                                    </th>
-                                    <th>
-                                        AuthorDesc
-                                    </th>
-                                    <th>
-                                        AuthorName
-                                    </th>
-                                    <th>
-                                        Facebook
-                                    </th>
+            <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    AllDescirption
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Category
+                                </th>
+                                <th>
+                                    CreateTime
+                                </th>
+                                <th>
+                                    AuthorDesc
+                                </th>
+                                <th>
+                                    AuthorName
+                                </th>
+                                <th>
+                                    Facebook
+                                </th>
 
-                                    <th>
-                                        Instagram
-                                    </th>
-                                    <th>
-                                        Twitter
-                                    </th>
-                                    <th>
-                                        Wahtsapp
-                                    </th>
-                                    <th>
-                                        Setting
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (Blog item in Model)
-                                {
+                                <th>
+                                    Instagram
+                                </th>
+                                <th>
+                                    Twitter
+                                </th>
+                                <th>
+                                    Wahtsapp
+                                </th>
+                                <th>
+                                    Setting
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (Blog item in Model)
+                            {
                                 <tr>
                                     <td>
                                         <img src="~/images/blog/@item.Image" style="width:100px;height:100px" />
@@ -111,10 +113,11 @@
                                         </a>
                                     </td>
                                 </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                        </tbody>
+
+                    </table>
+            </div>
                 }
                 else
                 {

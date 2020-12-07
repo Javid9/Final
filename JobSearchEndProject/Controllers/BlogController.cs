@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Models;
 using JobSearchEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -76,6 +77,15 @@ namespace JobSearchEndProject.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Detail",new { Id=comment.BlogId });
 
+        }
+
+
+        public IActionResult Search(string search)
+        {
+            var blog = _context.Blogs.Where(x => x.Title.ToLower().Contains(search.ToLower())).OrderByDescending(x => x.Id).Take(3)
+            .Include(x => x.Category)
+            .ToList();
+            return PartialView("_partialSearchBlog", blog);
         }
 
 

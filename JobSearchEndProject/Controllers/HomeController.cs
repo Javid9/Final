@@ -37,6 +37,7 @@ namespace JobSearchEndProject.Controllers
             modelVM.Header = _context.Headers.FirstOrDefault();
             modelVM.Categories = _context.Categories.Include(x => x.Jobs).ToList();
             modelVM.JobsTypes = _context.Jobs.Include(x => x.Category).Include(c => c.City).ToList();
+            modelVM.HowToWorks = _context.HowToWorks.ToList();
 
             return View(modelVM);
            

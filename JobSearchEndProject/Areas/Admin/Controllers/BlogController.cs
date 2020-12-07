@@ -136,5 +136,17 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+
+      
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var blog = _context.Blogs.FirstOrDefault(x => x.Id == id);
+            if (blog == null) return NotFound();
+            _context.Blogs.Remove(blog);
+           await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

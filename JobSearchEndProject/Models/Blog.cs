@@ -27,7 +27,7 @@ namespace JobSearchEndProject.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Subcomment> Subcomments { get; set; }
+        //public ICollection<Subcomment> Subcomments { get; set; }
 
 
     }

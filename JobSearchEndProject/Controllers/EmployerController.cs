@@ -45,15 +45,7 @@ namespace JobSearchEndProject.Controllers
 
 
 
-        public IActionResult Create()
-        {
-            ViewBag.Category = _context.Categories.ToList();
-            return View();
-        }
-
-
-       
-
+    
 
      
         public async Task<IActionResult> JobList(int? id)
@@ -66,6 +58,7 @@ namespace JobSearchEndProject.Controllers
 
             return View(jobs);
         }
+
 
 
         public async Task<IActionResult> DeletedJobList(int? id)
@@ -103,6 +96,14 @@ namespace JobSearchEndProject.Controllers
             return RedirectToAction("DeletedJobList", new { id = id });
         }
 
+
+
+
+        public IActionResult Create()
+        {
+            ViewBag.Category = _context.Categories.ToList();
+            return View();
+        }
 
 
 
@@ -165,11 +166,7 @@ namespace JobSearchEndProject.Controllers
             };
             newEmployer.Image = fileName;
 
-            //if(newEmployer.Email != null)
-            //{
-            //    ModelState.AddModelError("", "Employer Details succesfully accepted");
-            //    return View();
-            //}
+         
           
 
 

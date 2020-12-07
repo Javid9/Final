@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Blog>
+
+@foreach (Blog item in Model)
+{
+    <li class="blogLi">
+        <a class="a1" asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
+        <img class="blogImg" src="~/images/blog/@item.Image">
+        <a class="blogDesc" asp-route-id="@item.Id">@item.Description</a>
+    </li>
+}

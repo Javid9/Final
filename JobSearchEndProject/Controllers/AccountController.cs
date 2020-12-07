@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JobSearchEndProject.Helpers;
 using JobSearchEndProject.Models;
 using JobSearchEndProject.Services;
 using JobSearchEndProject.ViewModels;
@@ -11,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 namespace JobSearchEndProject.Controllers
 {
     public class AccountController : Controller
@@ -45,22 +43,22 @@ namespace JobSearchEndProject.Controllers
             if (!ModelState.IsValid) return View();
 
 
-                //var user = await _userManager.FindByNameAsync(login.Email);
-                //if (user != null)
-                //{
+            var user = await _userManager.FindByNameAsync(login.Email);
+            if (user != null)
+            {
 
-                //    if (!await _userManager.IsEmailConfirmedAsync(user))
-                //    {
-                //        ModelState.AddModelError(string.Empty, "emailinizi tesdiq etmemisiniz");
-                //        return View(login);
-                //    }
-                //}
-
-
+                if (!await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    ModelState.AddModelError(string.Empty, "emailinizi tesdiq etmemisiniz");
+                    return View(login);
+                }
+            }
 
 
 
-             AppUser loginUser = await _userManager.FindByEmailAsync(login.Email);
+
+
+            AppUser loginUser = await _userManager.FindByEmailAsync(login.Email);
             if(loginUser == null)
             {
                 ModelState.AddModelError("", "Email or password wrong!!");
@@ -177,15 +175,15 @@ namespace JobSearchEndProject.Controllers
             
    
             await _userManager.AddToRoleAsync(newUser, dbRole.Name);
-           
 
 
 
-            //var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-            //var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
-            //EmailServices emailService = new EmailServices();
-            //await emailService.SendEmailAsync(newUser.Email,
-            //"Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
+
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
+            EmailServices emailService = new EmailServices();
+            await emailService.SendEmailAsync(newUser.Email,
+            "Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
 
 
 

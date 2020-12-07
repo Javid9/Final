@@ -309,6 +309,30 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.CareerAdvice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CareerAdvices");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -544,6 +568,27 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Headers");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.HowToWork", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HowToWorks");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -641,6 +686,21 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("Loactions");
                 });
 
+            modelBuilder.Entity("JobSearchEndProject.Models.OurClient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OurClients");
+                });
+
             modelBuilder.Entity("JobSearchEndProject.Models.State", b =>
                 {
                     b.Property<int>("Id")
@@ -656,35 +716,28 @@ namespace JobSearchEndProject.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Subcomment", b =>
+            modelBuilder.Entity("JobSearchEndProject.Models.SuccessStorie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Message")
+                    b.Property<string>("Postion")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("Subcomments");
+                    b.ToTable("SuccessStories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -963,23 +1016,6 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("EducationLevel");
                 });
 
-            modelBuilder.Entity("JobSearchEndProject.Models.Subcomment", b =>
-                {
-                    b.HasOne("JobSearchEndProject.Models.AppUser", "AppUser")
-                        .WithMany("Subcomments")
-                        .HasForeignKey("AppUserId");
-
-                    b.HasOne("JobSearchEndProject.Models.Blog", "Blog")
-                        .WithMany("Subcomments")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Blog");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1038,15 +1074,11 @@ namespace JobSearchEndProject.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Jobs");
-
-                    b.Navigation("Subcomments");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Blog", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Subcomments");
                 });
 
             modelBuilder.Entity("JobSearchEndProject.Models.Category", b =>

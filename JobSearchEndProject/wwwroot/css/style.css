@@ -25,14 +25,56 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+
+
+/*iconBlog*/
+.iconS{
+    position:absolute;
+    top:44px;
+    right: 25px;
+}
+
+
+
+/*Blog Search*/
+.blogLi {
+    border: 1px solid red;
+    margin-top: 10px;
+}
+
+.a1 {
+    display: block;
+    margin-left: 40px;
+    margin-top: 7px;
+    text-decoration:none;
+    color: black;
+}
+
+.blogImg {
+    width: 60%;
+    display: block;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+.blogDesc {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: grey;
+    margin-left: 40px;
+}
+
+/*Blog Search End*/
+
 /*Login*/
 .header-login {
-    width:100px;
-    height:36px;
+    width: 100px;
+    height: 36px;
     background-color: #ff4f6c;
     border-radius: 15px;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
 }
 
 h1,

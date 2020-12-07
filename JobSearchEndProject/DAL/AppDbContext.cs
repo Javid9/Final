@@ -28,11 +28,15 @@ namespace JobSearchEndProject.DAL
         public DbSet<Employer> Employers { get; set; }
         public DbSet<EmployerCategory> EmployerCategories { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<Subcomment> Subcomments { get; set; }
+        //public DbSet<Subcomment> Subcomments { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Header> Headers { get; set; }
+        public DbSet<SuccessStorie> SuccessStories { get; set; }
+        public DbSet<HowToWork> HowToWorks { get; set; }
+        public DbSet<CareerAdvice> CareerAdvices { get; set; }
+        public DbSet<OurClient> OurClients { get; set; }
 
     }
 }

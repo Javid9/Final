@@ -15,7 +15,7 @@ namespace JobSearchEndProject.Models
         public ICollection<Job> Jobs { get; set; }
         public ICollection<Apply> Applies { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Subcomment> Subcomments { get; set; }
+        //public ICollection<Subcomment> Subcomments { get; set; }
 
     }
 }
