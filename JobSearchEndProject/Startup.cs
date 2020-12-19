@@ -54,6 +54,9 @@ namespace JobSearchEndProject
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Index/");
+
             app.UseAuthentication();
             app.UseStaticFiles();
             app.UseRouting();
@@ -61,8 +64,6 @@ namespace JobSearchEndProject
 
             app.UseEndpoints(endpoints =>
             {
-                
-
                 endpoints.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");

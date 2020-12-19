@@ -13,6 +13,9 @@ namespace JobSearchEndProject.ViewModels.Home
         public ICollection<Job> Jobs { get; set; }
         public ICollection<Job> JobsTypes { get; set; }
         public ICollection<HowToWork> HowToWorks { get; set; }
+        public ICollection<SuccessStorie> SuccessStories { get; set; }
+        public ICollection<OurClient> OurClients { get; set; }
+        public ICollection<CareerAdvice> CareerAdvices { get; set; }
 
     }
 }

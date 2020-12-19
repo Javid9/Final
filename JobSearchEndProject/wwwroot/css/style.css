@@ -1,25 +1,4 @@
-/*
-Template Name: Joobsy - Responsive Job Listing Template
-Author: Themesdesign
-File: main stylesheet
-*/
-/**********************
-01.General
-02.helper
-03.components
-04.menu
-05.default
-06.home
-07.footer
-08.subscribe
-09.jobs
-10.candidates
-11.employers
-12.blog
-13.pages
-14.contact
-15.post-a-job
-**********************/
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Rubik:300,400,500");
 body {
   font-family: "Roboto", sans-serif;
@@ -1158,6 +1137,16 @@ p {
 /********************
     page-header
 *********************/
+
+.page-header-apply {
+    padding: 210px 0px 60px 0px;
+    background-image: url("../images/office-2539844_1280.jpg");
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+}
+
+
 .page-header {
   padding: 210px 0px 60px 0px;
   background-image: url("../images/bg-page-header.jpg");
@@ -1165,6 +1154,10 @@ p {
   position: relative;
   background-position: center center;
 }
+
+
+
+
 
 .breadcrumb {
   background: transparent;

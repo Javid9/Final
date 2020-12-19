@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -32,10 +33,18 @@ namespace JobSearchEndProject.Controllers
         //[Authorize(Roles = "Admin, Employer")]
         public async Task<IActionResult> Index()
         {
+            CandidateVM candidateVM = new CandidateVM();
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var applies = _context.Applies.Where(x => x.AppUserId == user.Id).Include(x=>x.City).ToList();
-            return View(applies);
-        }
+           candidateVM.Applies = _context.Applies.Where(x => x.AppUserId == user.Id).Include(x=>x.City).ToList();
+
+            candidateVM.Jobs = _context.Jobs.Where(x => x.AppUserId == user.Id)
+                .Include(x => x.Category)
+                .Include(x => x.City)
+                .Include(x => x.Country)
+                .Include(x => x.AppUser)
+                .ToList();
+            return View(candidateVM);
+        }   
 
 
         public IActionResult Detail(int? id)

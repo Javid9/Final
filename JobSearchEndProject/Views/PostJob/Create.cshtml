@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                          
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
@@ -124,7 +124,7 @@
                                     <div class="form-group app-label mt-2">
                                         <label for="level" class="text-muted">Education Level</label>
                                         <div class="form-button">
-                                            <select class="nice-select"asp-for="@Model.EducationLevelId">
+                                            <select class="nice-select" asp-for="@Model.EducationLevelId">
                                                 <option data-display="Level">Level</option>
                                                 @foreach (var eduLevel in ViewBag.EduLevel)
                                                 {
@@ -137,7 +137,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label  asp-for="Experience" class="text-muted">Year of Experience</label>
+                                        <label asp-for="Experience" class="text-muted">Year of Experience</label>
                                         <div class="form-button">
                                             <input asp-for="Experience" type="text" class="form-control resume" placeholder="Experience">
                                             <span asp-validation-for="Experience" class="text-danger"></span>
@@ -150,7 +150,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group app-label mt-2">
                                         <label asp-for="Website" class="text-muted">Website</label>
-                                        <input asp-for="Website"  class="form-control resume" placeholder="Website or Github">
+                                        <input asp-for="Website" class="form-control resume" placeholder="Website or Github">
                                         <span asp-validation-for="Website"></span>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@
                                     <div class="form-group app-label mt-2">
                                         <label asp-for="Gender" class="text-muted">Gender</label>
                                         <div class="form-button">
-                                            <select asp-for="Gender" class="nice-select"name="Gender">
+                                            <select asp-for="Gender" class="nice-select" name="Gender">
                                                 <option data-display="Gender">Gender</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
@@ -195,7 +195,7 @@
                                             <select asp-for="Shift" class="nice-select" name="Shift">
                                                 <option data-display="Shift">Shift</option>
                                                 <option value="Morning">Morning</option>
-                                                <option value="Morning">Morning</option>
+                                                <option value="Morning">Evening</option>
                                             </select>
                                         </div>
                                     </div>
@@ -219,16 +219,14 @@
                                         <li class="list-inline-item">
                                             <div class="input-group mt-2 mb-2">
                                                 <div class="custom-file">
-                                                    <input asp-for="Photo" class="custom-file-input"  aria-describedby="inputGroupFileAddon01">
+                                                    <input asp-for="Photo" class="custom-file-input" aria-describedby="inputGroupFileAddon01">
                                                     <label asp-for="Photo" class="custom-file-label"><i class="mdi mdi-cloud-upload mr-1"></i> Upload Files</label>
                                                     <span asp-validation-for="Photo" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         </li>
 
-                                        @*<li class="list-inline-item">
-                                            <h6 class="text-muted mb-0">Upload Images Or Documents.</h6>
-                                        </li>*@
+                                     
                                     </ul>
                                 </div>
                             </div>

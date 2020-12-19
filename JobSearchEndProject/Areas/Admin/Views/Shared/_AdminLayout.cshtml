@@ -50,7 +50,7 @@
                         <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                           Admin Section
+                            Admin Section
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -59,6 +59,11 @@
                                 <a class="nav-link" asp-controller="Header" asp-action="Index">Header</a>
                                 <a class="nav-link" asp-controller="Jobs" asp-action="Index">Job</a>
                                 <a class="nav-link" asp-controller="HowItWork" asp-action="Index">HowItWork</a>
+                                <a class="nav-link" asp-controller="SuccessStorie" asp-action="Index">Success Storie</a>
+                                <a class="nav-link" asp-controller="OurClient" asp-action="Index">Our Client</a>
+                                <a class="nav-link" asp-controller="CareerAdvice" asp-action="Index">Career Advice</a>
+                                <a class="nav-link" asp-controller="Category" asp-action="Index">Category</a>
+                                <a class="nav-link" asp-controller="ContactInfo" asp-action="Index">ContactInfo</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                             </nav>
                         </div>
@@ -134,4 +139,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="~/admin/assets/demo/datatables-demo.js"></script>
 </body>
+
+@RenderSection("Scripts", false)
+
 </html>

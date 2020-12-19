@@ -30,8 +30,14 @@ namespace JobSearchEndProject.Controllers
 
         public IActionResult Index()
         {
-            var dbemployer = _context.Employers.Include(x => x.EmployerCategories).ThenInclude(x => x.Category);
-            return View(dbemployer);
+              var dbemployer = _context.Employers
+             .Include(x => x.EmployerCategories)
+             .ThenInclude(x => x.Category)
+             .Include(x=>x.AppUser)
+             .Where(x=>x.AppUser.isActivated)
+             .ToList();
+
+                return View(dbemployer);
         }
 
 
@@ -39,7 +45,7 @@ namespace JobSearchEndProject.Controllers
         {
             if (id == null) return NotFound();
             Employer employer = _context.Employers.Include(x => x.EmployerCategories).
-            ThenInclude(x => x.Category).FirstOrDefault(x => x.Id == id);
+            ThenInclude(x => x.Category).Include(x=>x.AppUser).FirstOrDefault(x => x.Id == id);
             return View(employer);
         }
 
@@ -151,8 +157,8 @@ namespace JobSearchEndProject.Controllers
                 return View();
             }
 
-            
-            
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             Employer newEmployer = new Employer
             {
                 Fullname=employer.Fullname,
@@ -162,6 +168,7 @@ namespace JobSearchEndProject.Controllers
                 CompanyOverview=employer.CompanyOverview,
                 Email=employer.Email,
                 Phone=employer.Phone,
+                AppUserId = user.Id
 
             };
             newEmployer.Image = fileName;

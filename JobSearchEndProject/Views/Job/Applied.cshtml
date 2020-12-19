@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Job>
+@{
+    ViewData["Title"] = "Applied";
+}
+
+    <section class="page-header-apply">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="page-header-title text-center text-white">
+                        <h4 class="text-uppercase">Apply List view</h4>
+                        <div>
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="#">Joobsy</a></li>
+                                <li class="breadcrumb-item"><a href="#">Apply</a></li>
+                                <li class="breadcrumb-item active">Apply List</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+<section id="boom">
+    @foreach (var item in Model)
+    {
+        var minutesPassed = (int)(DateTime.Now - item.CreateTime).TotalMinutes;
+        var hoursPassed = (int)(DateTime.Now - item.CreateTime).TotalHours;
+        var daysPassed = (int)(DateTime.Now - item.CreateTime).TotalDays;
+        <div class="row mr-0 ml-0">
+            <div class="col-lg-12">
+                <div class="job-list-box mt-4">
+                    <div class="p-3 ">
+                        <div class="row align-items-center ">
+                            <div class="col-lg-2">
+                                <div class="company-logo-img">
+                                    <img src="~/images/@item.Image" alt="" class="img-fluid mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-9">
+                                <div class="job-list-desc">
+                                    <h5 class="mb-2"><a href="#" class="text-dark">Title: @item.Title</a></h5>
+                                    <p class="text-muted mb-0">Category: <b>@item.Category.CategoryName</b> </p>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>@item.City.CityName</p>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item mr-3">
+                                            <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>@item.Country.CountryName</p>
+                                            <p class="text-muted mb-0">Email: @item.Email</p>
+                                            <p class="text-muted mb-0">Experience: @item.Experience year</p>
+                                            <p class="text-muted mb-0">Minx Salary: @item.MinSalary</p>
+                                            <p class="text-muted mb-0">Max Salary: @item.MaxSalary</p>
+                                            <p class="text-muted mb-0">User Name: @item.AppUser.UserName</p>
+                                            <p class="text-muted mb-0">Phone Number: @item.Phone</p>
+                                            <p class="text-muted mb-0">Website: @item.Website</p>
+
+                                        </li>
+
+                                        @if (minutesPassed < 60)
+                                        {
+                                            <li class="list-inline-item">
+                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@minutesPassed minutes ago </p>
+                                            </li>
+                                        }
+                                        else if (hoursPassed < 24)
+                                        {
+
+                                            <li class="list-inline-item">
+                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@hoursPassed hours ago </p>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="list-inline-item">
+                                                <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>@daysPassed days ago </p>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <div class="job-list-button-sm text-right">
+                                    <span class="badge badge-success">@item.JobType</span>
+
+                                    <div class="mt-3">
+                                        <a type="submit" asp-action="Detail" asp-route-id="@item.Id" class="apply-btn-sm btn btn-dark">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</section>
+
+

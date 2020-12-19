@@ -26,7 +26,7 @@
                                         <div class="col-lg-4 col-md-6">
                                             <div class="registration-form-box">
                                                 <i class="fa fa-briefcase"></i>
-                                                <input type="text" name="keywordInput" id="keywordInput" class="form-control registration-input-box" placeholder="Job keybords...">
+                                                <input type="text" autocomplete="off" name="keywordInput" id="keywordInput" class="form-control registration-input-box" placeholder="Job keybords...">
                                             </div>
                                         </div>
 
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var ctg in Model.Categories)
+            @foreach (var ctg in Model.Categories.Take(4))
             {
                 <div class="col-lg-3 col-md-6">
                     <div class="popu-category-box bg-light rounded text-center mt-4 p-4">
@@ -132,7 +132,7 @@
                             <div class="col-lg-12">
 
 
-                                @foreach (var item in Model.JobsTypes.OrderByDescending(x => x.Id))
+                                @foreach (var item in Model.JobsTypes.OrderByDescending(x => x.Id).Take(5))
                                 {
                                     <div class="job-box bg-white mt-4">
                                         <div class="p-4">
@@ -144,7 +144,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">@item.Category.CategoryName</a></h5>
+                                                        <h5 class="f-18"><a asp-controller="Job" asp-action="Detail" asp-route-id="@item.Id" class="text-dark">@item.Category.CategoryName</a></h5>
                                                         <p class="text-muted mb-0">@item.Title</p>
                                                     </div>
                                                 </div>
@@ -214,7 +214,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="tab-pane fade" id="featured-job" role="tabpanel" aria-labelledby="featured-job-tab">
                         <div class="row mb-5">
                             <div class="col-lg-12">
@@ -231,7 +230,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">@item.Category.CategoryName</a></h5>
+                                                        <h5 class="f-18"><a asp-controller="Job" asp-action="Detail" asp-route-id="@item.Id" class="text-dark">@item.Category.CategoryName</a></h5>
                                                         <p class="text-muted mb-0">@item.Title</p>
                                                     </div>
                                                 </div>
@@ -266,7 +265,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <a href="#" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
+                                                        <a asp-controller="Job" asp-action="Apply" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +319,7 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div>
-                                                            <h5 class="f-18"><a href="#" class="text-dark">@item.Category.CategoryName</a></h5>
+                                                            <h5 class="f-18"><a asp-controller="Job" asp-action="Detail" asp-route-id="@item.Id" class="text-dark">@item.Category.CategoryName</a></h5>
                                                             <p class="text-muted mb-0">@item.Title</p>
                                                         </div>
                                                     </div>
@@ -355,7 +354,7 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div>
-                                                            <a href="#" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
+                                                            <a asp-controller="Job" asp-action="Apply" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -407,7 +406,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">@item.Category.CategoryName</a></h5>
+                                                        <h5 class="f-18"><a asp-controller="Job" asp-action="Detail" asp-route-id="@item.Id" class="text-dark">@item.Category.CategoryName</a></h5>
                                                         <p class="text-muted mb-0">@item.Title</p>
                                                     </div>
                                                 </div>
@@ -442,7 +441,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <a href="#" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
+                                                        <a asp-controller="Job" asp-action="Apply" class="text-custom">Apply Now <i class="mdi mdi-chevron-double-right"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -515,7 +514,7 @@
                             <div>
                                 <h5 class="f-18">@howTo.Title</h5>
                                 <p class="f-14 text-muted">@howTo.Desc</p>
-                                <a href="#" class="text-custom">Read more <i class="mdi mdi-chevron-right"></i></a>
+                                <a href="https://localhost:44341/Page" class="text-custom">Read more <i class="mdi mdi-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -599,47 +598,22 @@
         <div class="row pt-4">
             <div class="col-lg-12">
                 <div id="owl-testi" class="owl-carousel owl-theme">
-                    <div class="item testi-box p-4 mr-3 ml-2 mb-4 bg-light position-relative">
-                        <p class="text-muted mb-5">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consecteturqui adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam</p>
-                        <div class="clearfix">
-                            <div class="testi-img float-left mr-3">
-                                <img src="~/images/testi/img-1.png" alt="" class="rounded-circle">
-                            </div>
-                            <h5 class="f-18 pt-1">Kevin Stewart</h5>
-                            <p class="text-muted mb-0">Web Designer at xyz Company</p>
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-2"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item testi-box p-4 mr-3 ml-2 bg-light position-relative">
-                        <p class="text-muted mb-5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-                        <div class="clearfix">
-                            <div class="testi-img float-left mr-3">
-                                <img src="~/images/testi/img-2.png" alt="" class="rounded-circle">
-                            </div>
-                            <h5 class="f-18 pt-1">Charles Garrett</h5>
-                            <p class="text-muted mb-0">Marketing manager at abc Company</p>
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-2"></i>
+                    @foreach (var successtore in Model.SuccessStories)
+                    {
+                        <div class="item testi-box p-4 mr-3 ml-2 mb-4 bg-light position-relative">
+                            <p class="text-muted mb-5">@successtore.Desc</p>
+                            <div class="clearfix">
+                                <div class="testi-img float-left mr-3">
+                                    <img src="~/images/testi/@successtore.Image" alt="" class="rounded-circle">
+                                </div>
+                                <h5 class="f-18 pt-1">@successtore.FullName</h5>
+                                <p class="text-muted mb-0">@successtore.Postion</p>
+                                <div class="testi-icon">
+                                    <i class="mdi mdi-format-quote-open display-2"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="item testi-box p-4 mr-3 ml-2 bg-light position-relative">
-                        <p class="text-muted mb-5">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consecteturqui adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam</p>
-                        <div class="clearfix">
-                            <div class="testi-img float-left mr-3">
-                                <img src="~/images/testi/img-3.png" alt="" class="rounded-circle">
-                            </div>
-                            <h5 class="f-18 pt-1">Perry Martinez</h5>
-                            <p class="text-muted mb-0">Marketing manager at abc Company</p>
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-2"></i>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
 
             </div>
@@ -655,26 +629,14 @@
         </div>
 
         <div class="row align-items-center">
-            <div class="col-md-3">
-                <div class="client-images">
-                    <img src="~/images/clients/1.png" alt="logo-img" class="mx-auto img-fluid d-block">
+            @foreach (var ourClient in Model.OurClients)
+            {
+                <div class="col-md-3">
+                    <div class="client-images">
+                        <img src="~/images/clients/@ourClient.Image" alt="logo-img" class="mx-auto img-fluid d-block">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="client-images">
-                    <img src="~/images/clients/2.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="client-images">
-                    <img src="~/images/clients/3.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="client-images">
-                    <img src="~/images/clients/4.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>
@@ -694,63 +656,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="blog-box bg-white mt-4">
-                    <div class="blog-img">
-                        <img src="~/images/blog/img-1.jpg" alt="" class="img-fluid mx-auto d-block">
-                    </div>
-                    <div class="blog-content p-4">
-                        <h5 class="f-17 mb-3"><a href="#" class="text-dark">Aenean vulputate eleifend tellus</a></h5>
-                        <p class="text-muted f-14 mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
-                    </div>
-                    <div class="clearfix pl-4 pr-4">
-                        <div class="float-left">
-                            <p class="text-muted f-14"><i class="mdi mdi-calendar-today text-custom"></i> 24 Sep, 2018</p>
+            @foreach (var career in Model.CareerAdvices)
+            {
+                <div class="col-lg-4">
+                    <div class="blog-box bg-white mt-4">
+                        <div class="blog-img">
+                            <img src="~/images/blog/@career.Image" alt="" class="img-fluid mx-auto d-block">
                         </div>
-                        <div class="float-right">
-                            <a href="#" class="text-custom f-14">Read more..</a>
+                        <div class="blog-content p-4">
+                            <h5 class="f-17 mb-3"><a href="#" class="text-dark">@career.Title</a></h5>
+                            <p class="text-muted f-14 mb-0">@career.Desc</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-box bg-white mt-4">
-                    <div class="blog-img">
-                        <img src="~/images/blog/img-2.jpg" alt="" class="img-fluid mx-auto d-block">
-                    </div>
-                    <div class="blog-content p-4">
-                        <h5 class="f-17 mb-3"><a href="#" class="text-dark">Maecenas tempus tellus eget</a></h5>
-                        <p class="text-muted f-14 mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
-                    </div>
-                    <div class="clearfix pl-4 pr-4">
-                        <div class="float-left">
-                            <p class="text-muted f-14"><i class="mdi mdi-calendar-today text-custom"></i> 25 Sep, 2018</p>
-                        </div>
-                        <div class="float-right">
-                            <a href="#" class="text-custom f-14">Read more..</a>
+                        <div class="clearfix pl-4 pr-4">
+                            <div class="float-left">
+                                <p class="text-muted f-14"><i class="mdi mdi-calendar-today text-custom"></i>@career.CreateTime.ToString("dddd, dd MMMM yyyy")</p>
+                            </div>
+                            <div class="float-right">
+                                <a asp-controller="Blog" asp-action="Index" class="text-custom f-14">Read more..</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-box bg-white mt-4">
-                    <div class="blog-img">
-                        <img src="~/images/blog/img-3.jpg" alt="" class="img-fluid mx-auto d-block">
-                    </div>
-                    <div class="blog-content p-4">
-                        <h5 class="f-17 mb-3"><a href="#" class="text-dark">Vestibulum ante ipsum primis</a></h5>
-                        <p class="text-muted f-14 mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
-                    </div>
-                    <div class="clearfix pl-4 pr-4">
-                        <div class="float-left">
-                            <p class="text-muted f-14"><i class="mdi mdi-calendar-today text-custom"></i> 26 Sep, 2018</p>
-                        </div>
-                        <div class="float-right">
-                            <a href="#" class="text-custom f-14">Read more..</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>

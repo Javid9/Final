@@ -26,7 +26,8 @@ namespace JobSearchEndProject.Models
         public string Shift { get; set; }
        
         public string Description { get; set; }
-      
+        public string AllDescription { get; set; }
+
         public string JobType { get; set; }
         public DateTime CreateTime { get; set; }
         public string Image { get; set; }
@@ -51,6 +52,9 @@ namespace JobSearchEndProject.Models
 
         public bool isActivated { get; set; }
         public bool featuredJob { get; set; }
+
+        public ICollection<ApplyJob> ApplyJobs { get; set; }
+
 
     }
 }

@@ -37,6 +37,8 @@ namespace JobSearchEndProject.DAL
         public DbSet<HowToWork> HowToWorks { get; set; }
         public DbSet<CareerAdvice> CareerAdvices { get; set; }
         public DbSet<OurClient> OurClients { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<ApplyJob> ApplyJobs { get; set; }
 
     }
 }

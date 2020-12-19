@@ -1,0 +1,64 @@
+﻿@model ContactInfo
+@{
+    ViewData["Title"] = "Update";
+}
+
+    <div class="row">
+        <div class="col-10 grid-margin stretch-card" style="position:absolute;right:0;top:120px">
+            <div class="card">
+                <div class="card-body col-12">
+                    <h4 class="card-title">Update ContactInfo</h4>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label asp-for="Website"></label>
+                            <input asp-for="Website" class="form-control" placeholder="Website">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Callus"></label>
+                            <input asp-for="Callus" class="form-control" placeholder="Callus">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Address"></label>
+                            <input asp-for="Address" class="form-control" placeholder="Address">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Facebook"></label>
+                            <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Instagram"></label>
+                            <input asp-for="Instagram" class="form-control" placeholder="Instagram">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Wahtsapp"></label>
+                            <input asp-for="Wahtsapp" class="form-control" placeholder="Wahtsapp">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tweeter"></label>
+                            <input asp-for="Tweeter" class="form-control" placeholder="Tweeter">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Linkedin"></label>
+                            <input asp-for="Linkedin" class="form-control" placeholder="Linkedin">
+                        </div>
+
+                        <button type="submit" class="btn btn-success mr-2 form-control">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

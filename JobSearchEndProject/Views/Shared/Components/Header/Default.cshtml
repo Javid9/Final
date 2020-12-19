@@ -100,6 +100,17 @@
 
             </ul>*@
                 </li>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                {
+                    <li class="has-submenu">
+                        <a asp-controller="Job" asp-action="Applied">Apply</a>
+                        <span class="menu-arrow"></span>
+                    </li>
+                }
+
+
+
                 @if (User.IsInRole("Admin") || User.IsInRole("Employer"))
                 {
                     <li class="has-submenu">
@@ -113,9 +124,11 @@
                     </li>
                 }
 
-                <li class="has-submenu">
-                    <a asp-controller="Employer" asp-action="Index">Employers</a>
-                    <span class="menu-arrow"></span>
+            <li class="has-submenu">
+                <a asp-controller="Employer" asp-action="Index">Employers</a>
+                <span class="menu-arrow"></span>
+                @if (User.IsInRole("Admin") || User.IsInRole("Employer"))
+                {
                     <ul class="submenu">
                         <li>
                             <a asp-controller="Employer" asp-action="JobList" asp-route-id="@Model.Id">Employer Jobs</a>
@@ -124,7 +137,11 @@
                             <a asp-controller="Employer" asp-action="DeletedJobList" asp-route-id="@Model.Id">Deleted Jobs</a>
                         </li>
                     </ul>
-                </li>
+                }
+
+            </li>
+
+
                 <li class="has-submenu">
                     <a asp-controller="Blog" asp-action="Index">Blog</a>
                     <span class="menu-arrow"></span>
@@ -172,7 +189,9 @@
                 <li class="has-submenu">
                     <a asp-controller="Contact" asp-action="Index">contact</a>
                 </li>
+          
                 <a asp-controller="PostJob" asp-action="Create" class="btn btn-custom btn-sm"><i class="mdi mdi-cloud-upload"></i> Post a Job</a>
+                
 
 
             </ul>

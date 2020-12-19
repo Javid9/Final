@@ -43,16 +43,16 @@ namespace JobSearchEndProject.Controllers
             if (!ModelState.IsValid) return View();
 
 
-            var user = await _userManager.FindByNameAsync(login.Email);
-            if (user != null)
-            {
+            //var user = await _userManager.FindByNameAsync(login.Email);
+            //if (user != null)
+            //{
 
-                if (!await _userManager.IsEmailConfirmedAsync(user))
-                {
-                    ModelState.AddModelError(string.Empty, "emailinizi tesdiq etmemisiniz");
-                    return View(login);
-                }
-            }
+            //    if (!await _userManager.IsEmailConfirmedAsync(user))
+            //    {
+            //        ModelState.AddModelError(string.Empty, "emailinizi tesdiq etmemisiniz");
+            //        return View(login);
+            //    }
+            //}
 
 
 
@@ -179,11 +179,12 @@ namespace JobSearchEndProject.Controllers
 
 
 
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-            var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
-            EmailServices emailService = new EmailServices();
-            await emailService.SendEmailAsync(newUser.Email,
-            "Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
+
+            //var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            //var href = Url.Action("ConfirmEmail", "Account", new { userId = newUser.Id, code = code }, protocol: Request.Scheme);
+            //EmailServices emailService = new EmailServices();
+            //await emailService.SendEmailAsync(newUser.Email,
+            //"Confirm your Account", $"Qeydiyyati tamamlamaq ucun linkden kecid edin <a href='{href}'>click link</a>");
 
 
 
@@ -203,25 +204,25 @@ namespace JobSearchEndProject.Controllers
         }
 
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                return View("Error");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
-            else
-                return View("Error");
-        }
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        //{
+        //    if (userId == null || code == null)
+        //    {
+        //        return View("Error");
+        //    }
+        //    var user = await _userManager.FindByIdAsync(userId);
+        //    if (user == null)
+        //    {
+        //        return View("Error");
+        //    }
+        //    var result = await _userManager.ConfirmEmailAsync(user, code);
+        //    if (result.Succeeded)
+        //        return RedirectToAction("Index", "Home");
+        //    else
+        //        return View("Error");
+        //}
 
 
 

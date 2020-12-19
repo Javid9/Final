@@ -63,7 +63,6 @@ namespace JobSearchEndProject.Models
         public AppUser AppUser { get; set; }
 
 
-
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Instagram { get; set; }
@@ -72,6 +71,8 @@ namespace JobSearchEndProject.Models
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public string JobTitle { get; set; }
 
 
 

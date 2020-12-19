@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -80,6 +81,17 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
 
            await _context.HowToWorks.AddAsync(newHowToWork);
           await _context.SaveChangesAsync();
+
+           // var callbackUrl = Url.Action(
+           // "Index",
+           // "Home",
+           //new { Id = howItWork.Id },
+           //protocol: HttpContext.Request.Scheme);
+           // EmailSubscribe email = new EmailSubscribe();
+           // List<string> e = _context.Subscriptions.Select(x => x.Email).ToList();
+           // await email.SendEmailAsync(e, "Yeni course",
+           //        "Yeni Course: <a href=https://localhost:44341/Home/Index" + $"{newHowToWork.Id}" + ">link</a>");
+
             return RedirectToAction(nameof(Index));
 
         }
@@ -117,6 +129,7 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
              await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
 
         public async Task<IActionResult> Delete(int? id)

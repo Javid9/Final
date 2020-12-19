@@ -11,10 +11,12 @@ namespace JobSearchEndProject.Models
     public class HowToWork
     {
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Desc { get; set; }
         public string Image { get; set; }
-        [NotMapped]
+        [NotMapped, Required]
         public IFormFile Photo { get; set; }
     }
 }

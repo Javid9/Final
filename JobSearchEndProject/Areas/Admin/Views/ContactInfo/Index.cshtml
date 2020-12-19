@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ContactInfo>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card" style="position:absolute;right:0;top:120px">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">ContactInfo Table</h4>
+                    @if (Model.Count() != 0)
+                    {
+                        <div class="table-responsive pt-3">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Website
+                                        </th>
+                                        <th>
+
+                                            Call us
+                                        </th>
+                                        <th>
+
+                                            Email
+                                        </th>
+                                        <th>
+
+                                            Address
+                                        </th>
+                                        <th>
+
+                                            Facebook
+                                        </th>
+                                        <th>
+
+                                            Instagram
+                                        </th>
+                                        <th>
+
+                                            Wahtsapp
+                                        </th>
+                                        <th>
+
+                                            Tweeter
+                                        </th>
+                                        <th>
+
+                                            Linkedin
+                                        </th>
+                                        <th>
+                                            Setting
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (ContactInfo item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @item.Website
+                                        </td>
+                                        <td>
+                                            @item.Callus
+                                        </td>
+                                        <td>
+                                            @item.Email
+                                        </td>
+                                        <td>
+                                            @item.Address
+                                        </td>
+                                        <td>
+                                            @item.Facebook
+                                        </td>
+                                        <td>
+                                            @item.Instagram
+                                        </td>
+                                        <td>
+                                            @item.Wahtsapp
+                                        </td>
+                                        <td>
+                                            @item.Tweeter
+                                        </td>
+                                        <td>
+                                            @item.Linkedin
+                                        </td>
+                                        <td>
+                                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        //<h4 class="card-title">Empty Table</h4>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+

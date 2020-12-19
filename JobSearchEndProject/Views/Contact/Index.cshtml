@@ -28,8 +28,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569" width="100%" height="500" style="border: 0" allowfullscreen></iframe>
-                </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.414401324136!2d49.84835781539472!3d40.37750727936966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307da84181778b%3A0x29db979ecc78150c!2s28%20May%20St%2C%20Baku!5e0!3m2!1sen!2s!4v1608217661251!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                </div>
             </div>
         </div>
     </div>
@@ -146,15 +145,15 @@
                         <div class="contact-location-icon">
                             <i class="mdi mdi-map-marker"></i>
                         </div>
-                        <p class="text-muted pt-4 f-20 mb-0">2453 Clinton StreetLittle Rock, AR 72211</p>
+                        <p class="text-muted pt-4 f-20 mb-0">@Model.Address</p>
                     </div>
                     <h5 class="text-muted mt-4 mb-0">Share</h5>
                     <ul class="blog-details-icons contact-social-icon list-inline mt-2 mb-0">
-                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-whatsapp"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="@Model.Facebook" class=""><i class="mdi mdi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="@Model.Tweeter" class=""><i class="mdi mdi-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="@Model.Wahtsapp" class=""><i class="mdi mdi-whatsapp"></i></a></li>
+                        <li class="list-inline-item"><a href="@Model.Instagram" class=""><i class="mdi mdi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="@Model.Linkedin" class=""><i class="mdi mdi-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -165,6 +164,7 @@
 <!-- subscribe start -->
 <partial name="_partialSubscribe" />
 <!-- subscribe end -->
+
 
 
 
@@ -182,7 +182,18 @@
 
             $("#sendBtn").click(function (e) {
                 e.preventDefault();
-                if ($("#name").val() != "" && $("#subject").val() != "" && $("#email").val() != "" && $("#messageee").val()) {
+                //if ($("#name").val() != "" && $("#subject").val() != "" && $("#email").val() != "" && $("#messageee").val()) {
+                if ($("#name").val() == "" || $("#subject").val() == "" || $("#email").val() == "" || $("#messageee").val() == "" ) {
+
+                    Swal.fire({
+                        title: 'please fill out the following form!',
+                        text: 'Do you want to continue',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                    })
+                    return false;
+                }
+
                     let formData = new FormData();
 
                     formData.append("Name", $("#name").val());
@@ -209,7 +220,7 @@
                             console.log(error);
                         });
 
-                }
+                //}
             });
         })
 

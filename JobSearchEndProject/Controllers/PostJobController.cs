@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JobSearchEndProject.DAL;
 using JobSearchEndProject.Extensions;
 using JobSearchEndProject.Models;
+using JobSearchEndProject.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -95,6 +96,20 @@ namespace JobSearchEndProject.Controllers
             newJob.Image = fileName;
             await _context.Jobs.AddAsync(newJob);
             await _context.SaveChangesAsync();
+
+
+
+            var callbackUrl = Url.Action(
+            "Index",
+            "Job",
+           new { Id = job.Id },
+           protocol: HttpContext.Request.Scheme);
+            EmailSubscribe email = new EmailSubscribe();
+            List<string> e = _context.Subscriptions.Select(x => x.Email).ToList();
+            await email.SendEmailAsync(e, "Yeni course",
+                   "Yeni Course: <a href=https://localhost:44341/Jobs/Index" + $"{newJob.Id}" + ">link</a>");
+
+
             return RedirectToAction("Index", "Job");
         }
     }

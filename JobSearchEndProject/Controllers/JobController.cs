@@ -44,40 +44,60 @@ namespace JobSearchEndProject.Controllers
         public IActionResult Index(int? page)
         {
             //ViewBag.Time = DateTime.Now.Minute;
-            ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 5);
+            ViewBag.PageCount = Math.Ceiling((decimal)_context.Jobs.Count() / 4);
             ViewBag.Page = page;
             JobVM jobVM = new JobVM();
             if (page == null)
             {
                 jobVM.Categories = _context.Categories.ToList();
-                jobVM.Jobs = _context.Jobs.Where(x => x.isActivated == true).OrderByDescending(p => p.Id).Take(5).Include(c => c.Category)
-                .Include(c => c.Country).Include(c => c.City).Include(x => x.AppUser).ToList();
+                jobVM.Jobs = _context.Jobs.Where(x => x.isActivated).OrderByDescending(p => p.Id).Take(4)
+                    .Include(c => c.Category)
+                    .Include(c => c.Country)
+                    .Include(c => c.City)
+                    .Include(x => x.AppUser)
+                    .ToList();
                 return View(jobVM);
             }
             else
             {
                 jobVM.Categories = _context.Categories.ToList();
-                jobVM.Jobs = _context.Jobs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 4)
-                 .Take(5).Include(c => c.Category)
-                .Include(c => c.Country).Include(c => c.City).Include(x => x.AppUser).ToList();
+                jobVM.Jobs = _context.Jobs.Where(x=>x.isActivated).OrderByDescending(p => p.Id).Skip(((int)page - 1) * 4).Take(4)
+                    .Include(c => c.Category)
+                    .Include(c => c.Country)
+                    .Include(c => c.City)
+                    .Include(x => x.AppUser)
+                    .ToList();
                 return View(jobVM);
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index( string userId)
+        public IActionResult Index( string userId, string jobTitle, int jobId)
         {
-            TempData["lorem"] = userId;
+            TempData["userId"] = userId;
+            TempData["jobTitle"] = jobTitle;
+            TempData["jobId"] = jobId;
             return RedirectToAction(nameof(Apply));
         }
+
+
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return RedirectToAction("Index","ErrorPage");
+            var jobdetail = _context.Jobs.Include(x => x.AppUser).Include(x => x.Category).Include(x => x.Country).Include(x => x.City).FirstOrDefault(x => x.Id == id);
+            if (jobdetail == null) return RedirectToAction("Index", "ErrorPage");
+            return View(jobdetail);
+        }
+
+
 
 
 
         [Authorize(Roles = "Admin, Employee")]
         public IActionResult Apply()
         {
-            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName");
+            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName").Take(3);
             ViewBag.State = new SelectList(_context.States.ToList(), "Id", "StateName");
             ViewBag.Country = new SelectList(_context.Countries.ToList(), "Id", "CountryName");
             ViewBag.EducationLevel = new SelectList(_context.EducationLevels.ToList(), "Id", "Level");
@@ -92,13 +112,30 @@ namespace JobSearchEndProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Apply(Apply apply, string General, string Status)
         {
-            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName");
+            ViewBag.City = new SelectList(_context.Cities.ToList(), "Id", "CityName").Take(3);
             ViewBag.State = new SelectList(_context.States.ToList(), "Id", "StateName");
             ViewBag.Country = new SelectList(_context.Countries.ToList(), "Id", "CountryName");
             ViewBag.EducationLevel = new SelectList(_context.EducationLevels.ToList(), "Id", "Level");
             ViewBag.Location = new SelectList(_context.Loactions.ToList(), "Id", "Locationn");
             ViewBag.Category = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
             if (!ModelState.IsValid) return View();
+
+
+        
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            ApplyJob applyJob = new ApplyJob
+            {
+                JobId = Convert.ToInt32(TempData["jobId"].ToString()),
+                AppUserId = user.Id,
+            };
+
+            _context.ApplyJobs.Add(applyJob);
+
+
+
+
 
             if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
             {
@@ -119,7 +156,6 @@ namespace JobSearchEndProject.Controllers
 
             string path = Path.Combine("images", "apply");
             string fileName = await apply.Photo.SaveImg(_env.WebRootPath, path);
-           
 
             Apply newApply = new Apply
             {
@@ -156,7 +192,9 @@ namespace JobSearchEndProject.Controllers
                 Twitter=apply.Twitter,
                 Google=apply.Google,
                 CategoryId=apply.CategoryId,
-                AppUserId = TempData["lorem"].ToString(),
+                AppUserId = TempData["userId"].ToString(),
+                JobTitle = TempData["jobTitle"].ToString(),
+
             };
             newApply.Image = fileName;
            
@@ -173,7 +211,7 @@ namespace JobSearchEndProject.Controllers
         {
             if (searchVm.Keyword != null && searchVm.CategoryId != 0)
             {
-                var jobs = _context.Jobs.Where(x => x.Title.ToLower().Contains(searchVm.Keyword.ToLower()) && x.CategoryId == searchVm.CategoryId).Take(5)
+                var jobs = _context.Jobs.Where(x => x.Title.ToLower().Contains(searchVm.Keyword.ToLower()) && x.CategoryId == searchVm.CategoryId && x.isActivated).Take(5)
                     .Include(c => c.Category)
                     .Include(c => c.City)
                     .Include(c => c.AppUser)
@@ -192,7 +230,7 @@ namespace JobSearchEndProject.Controllers
             if(categorySelectVM.CategoryId != 0)
             {
                 
-                var jobs = _context.Jobs.Where(x=>x.CategoryId == categorySelectVM.CategoryId).Take(3)
+                var jobs = _context.Jobs.Where(x=>x.CategoryId == categorySelectVM.CategoryId && x.isActivated).Take(3)
                     .Include(c => c.Category)
                     .Include(c => c.City)
                     .Include(c => c.AppUser)
@@ -207,6 +245,35 @@ namespace JobSearchEndProject.Controllers
             return Ok("");
         }
 
+
+
+
+        public async Task<IActionResult> Applied()
+        {
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var applyJobs = _context.ApplyJobs.Where(x => x.AppUserId == user.Id);
+            var jobs = _context.Jobs.Where(x=>x.isActivated)
+                .Include(x=>x.AppUser)
+                .Include(x=>x.Category)
+                .Include(x=>x.City)
+                .Include(x=>x.Country)
+                .ToList();
+
+            List<Job> jobss = new List<Job>();
+            foreach (var applyjob in applyJobs)
+            {
+                foreach (var item in jobs)
+                {
+                    if(item.Id == applyjob.JobId)
+                    {
+                        jobss.Add(item);
+                    }
+                }
+            }
+
+            return View(jobss);
+        }
 
     }
 }

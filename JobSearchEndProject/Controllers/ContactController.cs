@@ -19,6 +19,7 @@ namespace JobSearchEndProject.Controllers
 
         public IActionResult Index()
         {
+
             return View(_context.ContactInfos.FirstOrDefault());
         }
        

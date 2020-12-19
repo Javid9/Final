@@ -1,0 +1,50 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+    <div class="row">
+        <div class="col-lg-10 grid-margin stretch-card" style="position:absolute;right:0;top:120px">
+            <div class="card">
+                <div class="col-12">
+                    <a asp-action="Index" class="btn btn-dark mr-2 create-book">Go to Back</a>
+                </div>
+                
+                <div class="card-body">
+                    <h4 class="card-title">Blog Desciription</h4>
+                        <div class="table-responsive pt-3">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            AllDescirption
+                                        </th>
+                                        <th>
+                                            Descirption
+                                        </th>
+                                        <th>
+                                            AuthorDescription
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Model.AllDescription
+                                        </td>
+                                        <td>
+                                            @Model.Description
+                                        </td>
+                                        <td>
+                                            @Model.AuthorDesc
+                                        </td>
+</tbody>
+
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>

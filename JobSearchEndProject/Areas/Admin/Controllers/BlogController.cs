@@ -34,6 +34,17 @@ namespace JobSearchEndProject.Areas.Admin.Controllers
 
         }
 
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null) return NotFound();
+            var blogdetail = _context.Blogs.FirstOrDefault(x =>x.Id==id);
+            if (blogdetail == null) return NotFound();
+            return View(blogdetail);
+        }
+
+
+
         public IActionResult Create()
         {
             ViewBag.Category = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
