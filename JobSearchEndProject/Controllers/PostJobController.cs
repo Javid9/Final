@@ -106,8 +106,8 @@ namespace JobSearchEndProject.Controllers
            protocol: HttpContext.Request.Scheme);
             EmailSubscribe email = new EmailSubscribe();
             List<string> e = _context.Subscriptions.Select(x => x.Email).ToList();
-            await email.SendEmailAsync(e, "Yeni course",
-                   "Yeni Course: <a href=https://localhost:44341/Jobs/Index" + $"{newJob.Id}" + ">link</a>");
+            await email.SendEmailAsync(e, "Yeni Joob",
+                   "Yeni Joob: <a href=https://localhost:44341/Job/Index/" + $"{newJob.Id}" + ">link</a>");
 
 
             return RedirectToAction("Index", "Job");

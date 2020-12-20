@@ -14,7 +14,7 @@ namespace JobSearchEndProject.Services
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Education Saytin Admini", "javiddadashov8@mail.ru"));
+            emailMessage.From.Add(new MailboxAddress("Joobsy Saytinin Admini", "c.dadashov@inbox.ru"));
             foreach (var item in email)
             {
                 emailMessage.To.Add(new MailboxAddress("", item));
@@ -28,7 +28,7 @@ namespace JobSearchEndProject.Services
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp.mail.ru", 465, true);
-                await client.AuthenticateAsync("javiddadashov8@mail.ru", "IyoKtdI3El1-");
+                await client.AuthenticateAsync("c.dadashov@inbox.ru", "y)iNytUUyK32");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
